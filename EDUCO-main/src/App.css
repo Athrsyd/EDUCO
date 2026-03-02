@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔥 Navbar Glass Effect */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.1); /* transparan */
+  backdrop-filter: blur(12px); /* efek blur */
+  -webkit-backdrop-filter: blur(12px); /* support safari */
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  color: white;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px; /* jarak antar menu */
+  list-style: none;
+  color: white;
+  font-size: 18px;
+  align-items: center;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+/* Hero Image */
+.gambar {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  height: 70px;         
+  padding: 0 40px;   
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  z-index: 1000;
+}
+
+/* Hero Image */
+.gambar {
+  width: 100vw;   /* pakai vw */
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.Lambang {
+  height: 150px;
+  weight: auto;
+}
+
+.Login {
+  color: #48A111;
+  background-color:#F7F0F0;
+  border-radius: 999px;
+  padding: 12px 28px;
+}
+
+.Sign {
+  background: linear-gradient(90deg,#48A111,#25671E);
+  border-radius: 999px;
+  padding: 12px 28px;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: url('./assets/PEMANDANGAN.JPG');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+}
+
+/* overlay gelap biar text kebaca */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 98px;
+  width: 665px;
+  height: 158px;
+}
+
+.hero h1 span {
+  color: #22c55e; /* hijau EDUCO */
+}
+
+.hero h2 {
+  font-size: 36px;
+  font-weight: 600;
+  width: 665px;
+  height: 158px;
+  margin-left: 97px;
+}
+
+.hero p {
+  line-height: 1.6;
+  opacity: 0.9;
+  font-size: 24px;
+  margin-left: 97px;
+
+}
+
+/* tombol */
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  background: #22c55e;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 134px;
+  font-size:  50px; 
+
+
+}
+
+.btn-secondary {
+  background: #16a34a;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  size: 35px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.85;
+}
+
