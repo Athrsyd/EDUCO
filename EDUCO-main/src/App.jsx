@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import bromo from './assets/PEMANDANGAN.JPG'
+import bromo from './assets/PEMANDANGAN.jpg'
 import logo from './assets/eduko-removebg-preview.png'
 
 

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+
 
 body {
   margin: 0;
@@ -118,7 +118,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url('./assets/PEMANDANGAN.JPG');
+  background-image: url('./assets/PEMANDANGAN.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
