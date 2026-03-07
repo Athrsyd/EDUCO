@@ -28,6 +28,9 @@ const TestingComponent = () => {
       <h1>Statistik - Landing Page</h1>
       <Diagram/>
       </div>
+
+      {/* Testimoni Components */}
+      <h1>Testimoni - Landing Page</h1>
     </>
   )
 }
