@@ -2,13 +2,20 @@ import React from 'react'
 import FAQ from '../Components/FAQ'
 import SliderProgram from '../Components/SliderProgram'
 import Diagram from "../Components/Diagram"
+import Testimoni from '../Components/Testimoni'
+import Footer from '../Components/Footer'
+import Navbar from '../Components/Navbar'
 
 const TestingComponent = () => {
   return (
     <>
-      <div className='text-center'>Testing Componeng
-      </div>
 
+      <Navbar/>
+      <br /><br />
+      <br /><br />
+
+      <div className='text-center'>Testing Component
+      </div>
       {/* FAQ Components*/}
       <h1>FAQ - Landing Page</h1>
       <FAQ />
@@ -31,6 +38,11 @@ const TestingComponent = () => {
 
       {/* Testimoni Components */}
       <h1>Testimoni - Landing Page</h1>
+      <Testimoni />
+
+
+      <h1 className ='mb-10'>Footer - Landing Page</h1>
+      <Footer />
     </>
   )
 }

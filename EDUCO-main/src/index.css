@@ -5,6 +5,7 @@
 *{
   box-sizing: border-box;
   font-family: var(--font-poppins);
+  scroll-behavior:smooth;
 }
 
 @theme{
@@ -14,4 +15,73 @@
   --color-secondary : #25671E;
   --color-accent : #F2B50B;
   --color-last : #F7F0F0;
+}
+
+/* Testimoni scroll section */
+.testimoni-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.transisi-kanan,
+.transisi-kiri {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 75px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.transisi-kanan {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+.transisi-kiri {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.overlay-scroll {
+  overflow: hidden;
+  gap: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: scroll-left 120s linear infinite;
+}
+
+.scroll-track-reverse {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: scroll-right 120s linear infinite;
+}
+
+.overlay-scroll:hover .scroll-track,
+.overlay-scroll:hover .scroll-track-reverse {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
