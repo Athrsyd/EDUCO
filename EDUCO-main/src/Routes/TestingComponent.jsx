@@ -1,6 +1,7 @@
 import React from 'react'
 import FAQ from '../Components/FAQ'
 import SliderProgram from '../Components/SliderProgram'
+import Diagram from "../Components/Diagram"
 
 const TestingComponent = () => {
   return (
@@ -22,7 +23,11 @@ const TestingComponent = () => {
 
       {/* Statistik Components */}
       
-      <h1>Statistik</h1>
+      <div className="bg- w-full h-100">
+
+      <h1>Statistik - Landing Page</h1>
+      <Diagram/>
+      </div>
     </>
   )
 }
