@@ -48,7 +48,8 @@ const Router = () => {
         <Route path="/guru/capaian-murid" element={<CapaianMurid />} />
         <Route path="/guru/create-misi" element={<CreateMisi />} />
         <Route path="/guru/daftar-murid" element={<DaftarMurid />} />
-        <Route path="/guru/edit-misi/:id" element={<EditMisi />} />
+        <Route path="/guru/edit-misi/:id" element={<SetingMisi />} />
+        {/* <Route path="/guru/"/> */}
       </Routes>
     </BrowserRouter>
   )
