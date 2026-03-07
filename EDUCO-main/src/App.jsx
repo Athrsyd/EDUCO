@@ -1,11 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
 import bromo from './assets/PEMANDANGAN.jpg'
 import logo from './assets/eduko-removebg-preview.png'
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
