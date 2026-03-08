@@ -6,7 +6,7 @@ const icons = dataIcon({ size: 20, color: 'currentColor' })
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className='z-10'>
             {/* Main Footer */}
             <div className="bg-accent px-10">
                 <div className="container mx-auto py-10 px-5">
