@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -22,3 +23,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+=======
+
+Bukti_Pendaftaran.jpeg
+# Surat_Penganti_Kartu_Pelajar.pdf
+>>>>>>> 2d489a8bf74bbc955305630036bd13a674219598
