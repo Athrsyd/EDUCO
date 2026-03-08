@@ -9,7 +9,9 @@ const SliderProgram = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
   };

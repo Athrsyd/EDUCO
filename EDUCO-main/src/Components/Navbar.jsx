@@ -42,7 +42,7 @@ const Navbar = () => {
                         <ul className='flex text-secondary font-semibold flex-row justify-between items-center gap-10'>
                             <a href="#home"><li>Home</li></a>
                             <a href="#about"><li>Tentang Kami</li></a>
-                            <a href="#contact"><li>Program</li></a>
+                            <a href="#program"><li>Program</li></a>
                             <a href="#testimoni"><li>Testimoni</li></a>
                         </ul>
                     </div>
