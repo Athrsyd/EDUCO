@@ -35,7 +35,7 @@ const Footer = () => {
 
                             {/* Download */}
                             <p className="text-last font-semibold mt-2 text-center md:text-left">Dapatkan Aplikasi</p>
-                            <div className="flex gap-3 justify-center md:justify-start flex-wrap">
+                            <div className="flex gap-3 justify-center md:justify-start flex-row">
                                 <a href="#">
                                     <img src="/download_playStore.svg" alt="Google Play" className="h-10 md:h-12" />
                                 </a>

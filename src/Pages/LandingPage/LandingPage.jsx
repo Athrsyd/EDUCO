@@ -64,14 +64,14 @@ const LandingPage = () => {
                 {/* Konten */}
                 <div className="relative z-10 flex flex-col text-white">
 
-                    <div className="px-4 md:px-15 mt-20 md:mt-35 text-center">
+                    <div className="px-4 md:px-15 mt-25  text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-center'>Welcome to
                             <span className='text-primary'> {''}Educo</span></h1>
                         <h2 className='mt-3 md:mt-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center' >"Generasi Penerus, Hidupkan Lingkungan"
                         </h2>
                         <div className="mt-8 md:mt-15 w-3/4 mx-auto">
                             <p className='text-sm md:text-lg text-justify '>
-                               EDUCO merupakan sebuah layanan website pembelajaran terkait pelestarian lingkungan yang berfungsi sebagai sarana pembelajaran. Kami menghadirkan banyak cara unik untuk menyelesaikan masalah terkait lingkungan. Bersama EDUCO, kami mendukung generasi penerus untuk berkembang serta berperan dalam menciptakan lingkungan yang lebih baik.</p>
+                                EDUCO merupakan sebuah layanan website pembelajaran terkait pelestarian lingkungan yang berfungsi sebagai sarana pembelajaran. Kami menghadirkan banyak cara unik untuk menyelesaikan masalah terkait lingkungan. Bersama EDUCO, kami mendukung generasi penerus untuk berkembang serta berperan dalam menciptakan lingkungan yang lebih baik.</p>
                         </div>
                         <div className="h-0.75 bg-last/60 w-48 sm:w-64 md:w-200 mx-auto mt-6 md:mt-10 rounded-full"></div>
                     </div>
@@ -199,19 +199,19 @@ const LandingPage = () => {
                         <img src={awan} alt="" className='w-20 sm:w-32 md:w-3/10 -ml-10 md:-ml-20' key={index} />
                     ))}
                 </div>
-                    <br />
-                    <br />
-                    <br />
+                <br />
+                <br />
+                <br />
             </section>
             {/* Program End*/}
 
 
             {/* FAQ start */}
             <section className='relative z-20 bg-last rounded-b-3xl md:rounded-b-4xl'>
-                <div className="hiasan absolute -z-999 right-0 md:right-50 -top-20 md:-top-30 w-full">
+                <div className="hiasan absolute -z-999 right-0 md:right-225 -top-20 md:-top-30 w-full">
                     <img src={hiasan} alt="asep" className='w-1/2 max-w-xs md:max-w-full ml-auto' />
                 </div>
-                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col justify-between items-center gap-10 md:gap-20">
+                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-20">
                     <div className="kiri w-full md:w-1/2 flex flex-col justify-start items-center gap-6 md:gap-10">
                         {dataFAQ.map((faq) => (
                             <FAQ
@@ -238,7 +238,7 @@ const LandingPage = () => {
                     <div className="header mx-auto text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl leading-tight font-anton text-center text-last'>
                             Statistik Kasus <span>Pencemaran Alam Tahunan</span>
-                            </h1>
+                        </h1>
                     </div>
                 </div>
             </section>
