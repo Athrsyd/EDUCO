@@ -9,10 +9,10 @@ const TestimoniCard = ({ item }) => (
         <img className='w-12 h-12 rounded-full object-cover' src={item.gambar} alt={`Foto ${item.nama}`} />
         <div>
           <h1 className='font-bold text-2xl text-primary'>{item.nama}</h1>
-          <p className='text-sm'>{item.pekerjaan}</p>
+          <p className='text-sm text-black/80'>{item.pekerjaan}</p>
         </div>
       </div>
-      <div className="text-primary text-sm text-justify mt-5 mr-10">
+      <div className="text-primary  font-semibold text-sm text-justify mt-5 mr-10">
         <p>{item.testimoni}</p>
       </div>
     </div>
@@ -26,13 +26,13 @@ const TestimoniCard = ({ item }) => (
 
 const Testimoni = () => {
   return (
-    <div className="testimoni-wrapper">
-      <div className="w-20 transisi-kiri"></div>
-      <div className="w-20 transisi-kanan"></div>
+    <div className="relative overflow-hidden">
+      <div className="absolute top-0 bottom-0 left-0 w-18.75 z-10 pointer-events-none bg-linear-to-r from-last to-transparent"></div>
+      <div className="absolute top-0 bottom-0 right-0 w-18.75 z-10 pointer-events-none bg-linear-to-l from-last to-transparent"></div>
 
       <div className="flex flex-col gap-5">
-        <div className="overlay-scroll">
-          <div className="scroll-track">
+        <div className="overflow-hidden pb-2 group">
+          <div className="flex gap-5 w-max animate-[scroll-left_120s_linear_infinite] group-hover:[animation-play-state:paused]">
             {testimoni.map((item) => (
               <TestimoniCard key={item.id} item={item} />
             ))}
@@ -41,13 +41,13 @@ const Testimoni = () => {
             ))}
           </div>
         </div>
-        <div className="overlay-scroll">
-          <div className="scroll-track-reverse">
-            {testimoni2.map((item) => (
-              <TestimoniCard key={item.id} item={item} />
-            ))}
+        <div className="overflow-hidden pb-2 group">
+          <div className="flex gap-5 w-max animate-[scroll-right_120s_linear_infinite] group-hover:[animation-play-state:paused]">
             {testimoni2.map((item) => (
               <TestimoniCard key={`dup-${item.id}`} item={item} />
+            ))}
+            {testimoni2.map((item) => (
+              <TestimoniCard key={item.id} item={item} />
             ))}
           </div>
         </div>

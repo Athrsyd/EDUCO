@@ -9,6 +9,7 @@ import FAQ from '../../Components/FAQ';
 import hiasan from '/asapIjo.png'
 import awan from '/awan.png'
 import Diagram from '../../Components/Diagram'
+import Testimoni from '../../Components/Testimoni'
 
 const LandingPage = () => {
 
@@ -66,11 +67,14 @@ const LandingPage = () => {
 
                     <div className="px-4 md:px-15 mt-25  text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-center'>Welcome to
-                            <span className='text-primary'> {''}Educo</span></h1>
+                            <span className='bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent'>
+                                {' '}EDUCO
+                            </span>
+                        </h1>
                         <h2 className='mt-3 md:mt-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-center' >"Generasi Penerus, Hidupkan Lingkungan"
                         </h2>
                         <div className="mt-8 md:mt-15 w-3/4 mx-auto">
-                            <p className='text-sm md:text-lg text-justify '>
+                            <p className='text-sm md:text-lg text-justify'>
                                 EDUCO merupakan sebuah layanan website pembelajaran terkait pelestarian lingkungan yang berfungsi sebagai sarana pembelajaran. Kami menghadirkan banyak cara unik untuk menyelesaikan masalah terkait lingkungan. Bersama EDUCO, kami mendukung generasi penerus untuk berkembang serta berperan dalam menciptakan lingkungan yang lebih baik.</p>
                         </div>
                         <div className="h-0.75 bg-last/60 w-48 sm:w-64 md:w-200 mx-auto mt-6 md:mt-10 rounded-full"></div>
@@ -107,7 +111,7 @@ const LandingPage = () => {
                     </div>
                     <div className="kanan w-full md:w-1/2 mt-6 md:mt-0">
                         <div className="w-full mx-auto">
-                            <p className=' text-sm md:text-md text-justify '>
+                            <p className=' text-sm md:text-md text-justify font-semibold text-secondary'>
                                 EDUCO hadir sebagai solusi dari maraknya isi lingkungan yang terjadi dan juga sebagai sarana untuk meningkatkan efektivitas serta kualitas pendidikan lingkungan <br /><br />
                                 Melalui berbagai program dan fitur yang inovatif, kami berupaya untuk mendukung guru dan siswa dalam mengakses materi pembelajaran secara mudah, fleksibel, dan efektif. <br /><br />
                                 Kami percaya bahwa teknologi dapat menjadi jembatan untuk menciptakan pengalaman belajar yang lebih baik bagi generasi masa depan.</p>
@@ -182,7 +186,7 @@ const LandingPage = () => {
                 <div className="container w-full  py-10 md:py-20 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-20">
                     <div className="kiri w-full md:w-1/2 flex flex-col gap-6 md:gap-10">
                         {/* Jangan lupa ini ganti font */}
-                        <h1 className='text-4xl sm:text-5xl md:text-7xl font-anton text-center md:text-start text-primary'>Program Kami</h1>
+                        <h1 className='text-4xl sm:text-5xl md:text-7xl font-anton text-center md:text-start bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent'>Program Kami</h1>
                         <p className='text-base md:text-lg text-justify text-primary font-semibold mt-3 md:mt-5'>
                             Kami menyediakan permainan edukatif berbasiskan lingkungan yang membuat siswa bisa secara langsung belajar dan mempraktikkan bagaimana cara melestarikan lingkungan.
                         </p>
@@ -194,7 +198,7 @@ const LandingPage = () => {
                         <SliderProgram />
                     </div>
                 </div>
-                <div className="container absolute z-999 left-0 -bottom-20 w-full flex flex-row  justify-start items-end overflow-hidden">
+                <div className="container absolute z-999 left-0 -bottom-20 w-full flex flex-row  justify-start items-end">
                     {Array(10).fill().map((_, index) => (
                         <img src={awan} alt="" className='w-20 sm:w-32 md:w-3/10 -ml-10 md:-ml-20' key={index} />
                     ))}
@@ -207,7 +211,7 @@ const LandingPage = () => {
 
 
             {/* FAQ start */}
-            <section className='relative z-20 bg-last rounded-b-3xl md:rounded-b-4xl'>
+            <section className='relative z-10 bg-last rounded-b-3xl md:rounded-b-4xl'>
                 <div className="hiasan absolute -z-999 right-0 md:right-225 -top-20 md:-top-30 w-full">
                     <img src={hiasan} alt="asep" className='w-1/2 max-w-xs md:max-w-full ml-auto' />
                 </div>
@@ -223,7 +227,7 @@ const LandingPage = () => {
                         ))}
                     </div>
                     <div className="kanan w-full md:w-1/2">
-                        <h1 className='text-4xl sm:text-5xl md:text-7xl leading-tight font-anton text-center md:text-end text-primary '>Kenapa Memilih EDUCO ?</h1>
+                        <h1 className='text-4xl sm:text-5xl md:text-7xl leading-tight font-anton text-center md:text-end bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent '>Kenapa Memilih EDUCO ?</h1>
                         <p className='text-base md:text-lg text-justify text-primary font-semibold mt-3 md:mt-5'>
                             EDUCO lahir sebagai repons perkembangan zaman. Solusi edukatif di era globalisasi untuk generasi kedepan yang memiliki dampak berkelanjutan.
                         </p>
@@ -233,19 +237,51 @@ const LandingPage = () => {
             {/* FAQ end */}
 
             {/* Statistik Start */}
-            <section className='relative z-10 -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl '>
-                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col justify-between items-center gap-10 md:gap-20">
+            <section className='relative -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl '>
+                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col justify-between items-center gap-10">
                     <div className="header mx-auto text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl leading-tight font-anton text-center text-last'>
                             Statistik Kasus <span>Pencemaran Alam Tahunan</span>
-                        </h1>
+                        </h1> <br />
+
+                        <p className='text-base md:text-lg text-justify px-12 text-last font-semibold'>
+                            Statistik kasus pencemaran alam tahunan Lorem ipsum dolor sit, amet consectetur
+                            adipisicing elit. Minus officiis fugiat dolorum! Itaque modi quae magnam voluptas.
+                            Odio dolores suscipit iusto repellendus alias perferendis esse? menunjukkan peningkatan
+                            yang signifikan dalam beberapa kategori, menandakan perlunya intervensi yang lebih efektif.
+                        </p>
+                    </div>
+                    <div className="diagram w-full px-10 mx-auto">
+                        <div className="bg-last rounded-4xl md:p-10">
+                            <Diagram />
+                        </div>
                     </div>
                 </div>
             </section>
             {/* Statistik ENd */}
 
-            <br />
-            <br />
+            {/* Testimoni Start  */}
+            <section id='testimoni' className='relative bg-last w-full rounded-b-3xl md:rounded-b-4xl '>
+                <div className="container flex flex-col justify-center items-center gap-10 py-10 md:py-20 px-4 md:px-40">
+                    <div className=" bg-linear-to-b from-primary to-secondary  py-2 px-5 rounded-4xl">
+                        <h1 className='text-xl md:text-2xl font-bold text-center text-last
+                        '
+                        >Apa Kata Mereka?</h1>
+                    </div>
+                    <div className="testimoni ">
+                        <Testimoni />
+                    </div>
+
+                    <div className="w-full flex justify-center flex-col py-4 gap-15 text-center items-center bg-primary rounded-4xl">
+                        <h1 className='text-3xl font-bold text-last'
+                        >Mereka sudah percaya dengan EDUCO. <br/> Sekarang giliran-mu !</h1>
+                        <button className='py-6 px-12 bg-last text-primary text-3xl
+                        rounded-3xl font-bold '>Daftar Sekarang!</button>
+                    </div>
+                    <br /><br />
+                </div>
+            </section>
+            {/* Testimoni End */}
             {/* About End */}
             <Footer />
         </div>

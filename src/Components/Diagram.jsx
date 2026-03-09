@@ -14,25 +14,26 @@ const Diagram = () => {
                 label: 'Polusi Udara (Hari Buruk)',
                 data: dataPencemaran.map(item => item.data.polusi_udara_hari_buruk),
                 backgroundColor: '#48A111',
-                borderRadius : 6
+                borderRadius: 6
             },
             {
                 label: 'Timbulan Sampah (Juta Ton)',
                 data: dataPencemaran.map(item => item.data.timbulan_sampah_ton / 1000000),
                 backgroundColor: '#F2B50B',
-                borderRadius : 6
+                borderRadius: 6
             },
             {
                 label: 'Kasus Pencemaran Air Perbulan',
-                data: dataPencemaran.map(item => item.data.kasus_pencemaran_air/12),
+                data: dataPencemaran.map(item => item.data.kasus_pencemaran_air / 12),
                 backgroundColor: '#25671E',
-                borderRadius : 6
+                borderRadius: 6
             },
         ],
     }
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: { position: 'top' },
             title: { display: true, text: 'Data Pencemaran Lingkungan di Indonesia' },
@@ -41,18 +42,20 @@ const Diagram = () => {
             y: { beginAtZero: true },
             x: {
                 grid: {
-                    display: false, // Menghilangkan garis vertikal (grid lines) sumbu x
-                    drawBorder: false, // Opsional: Menghilangkan garis sumbu X paling bawah
+                    display: false,
+                    drawBorder: false,
                 }
             },
         }
     }
 
-  return(
-    <div className = "max-w-3xl mx-auto p-4" >
+    return (
+        <div className="w-full max-w-none mx-auto py-4">
+            <div className="relative w-full max-w-none h-44 sm:h-60 md:h-76 lg:h-105">
                 <Bar data={data} options={options} />
-    </div >
-  )
+            </div>
+        </div>
+    )
 }
 
 export default Diagram

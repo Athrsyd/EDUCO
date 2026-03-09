@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const [linkName, setLinkName] = useState('home')
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -15,15 +16,37 @@ const Navbar = () => {
     const closeMenu = () => {
         setIsMenuOpen(false)
     }
+    // const test = () => {
+    //     console.log('nilai y window :', window.scrollY)
+    // }
 
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setIsScrolled(true)
-        } else {
-            setIsScrolled(false)
-        }
+    const handleClick = (section) => {
+        setLinkName(section)
     }
+
+    
     useEffect(() => {
+        const handleLinkScroll = () => {
+            console.log(window.scrollY)
+            if (window.scrollY > 404 && window.scrollY <= 1140) {
+                setLinkName('about')
+            } else if (window.scrollY >= 1141 && window.scrollY <= 3933) {
+                setLinkName('program')
+            } else if (window.scrollY > 3934) {
+                setLinkName('testimoni')
+            } else {
+                setLinkName('home')
+            }
+        }
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+
+            handleLinkScroll();
+        }
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)
@@ -53,18 +76,19 @@ const Navbar = () => {
                 <div className='hidden md:flex flex-row justify-between items-center gap-8 lg:gap-10'>
                     <div className="Nav-Links">
                         <ul className='flex text-secondary font-semibold flex-row justify-between items-center gap-6 lg:gap-10'>
-                            <a href="#home" onClick={closeMenu}><li className='hover:text-primary transition-colors'>Home</li></a>
-                            <a href="#about" onClick={closeMenu}><li className='hover:text-primary transition-colors'>Tentang Kami</li></a>
-                            <a href="#program" onClick={closeMenu}><li className='hover:text-primary transition-colors'>Program</li></a>
-                            <a href="#testimoni" onClick={closeMenu}><li className='hover:text-primary transition-colors'>Testimoni</li></a>
+                            <a href="#home" onClick={() => handleClick('home')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'home' ? 'text-last' : ''}`}>Home</li></a>
+                            <a href="#about" onClick={() => handleClick('about')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'about' ? 'text-last' : ''}`}>Tentang Kami</li></a>
+                            <a href="#program" onClick={() => handleClick('program')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'program' ? 'text-last' : ''}`}>Program</li></a>
+                            <a href="#testimoni" onClick={() => handleClick('testimoni')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'testimoni' ? 'text-last' : ''}`}>Testimoni</li></a>
+                            {/* <li onClick={test} className='hover:text-primary cursor-pointer transition-colors'>test</li> */}
                         </ul>
                     </div>
                     <div className="buttons flex flex-row justify-between items-center gap-3 lg:gap-5">
                         <Link to="/login">
-                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-primary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Login</button>
+                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-last font-semibold text-primary rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Login</button>
                         </Link>
                         <Link to="/register">
-                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-primary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Register</button>
+                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-linear-to-r from-primary to-secondary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Register</button>
                         </Link>
                     </div>
                 </div>
@@ -81,10 +105,10 @@ const Navbar = () => {
                     </div>
                     <div className="Nav-Links flex-1">
                         <ul className='flex flex-col gap-6 text-secondary font-semibold'>
-                            <a href="#home" onClick={closeMenu}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Home</li></a>
-                            <a href="#about" onClick={closeMenu}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Tentang Kami</li></a>
-                            <a href="#program" onClick={closeMenu}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Program</li></a>
-                            <a href="#testimoni" onClick={closeMenu}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Testimoni</li></a>
+                            <a href="#home" onClick={() => { handleClick('home'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Home</li></a>
+                            <a href="#about" onClick={() => { handleClick('about'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Tentang Kami</li></a>
+                            <a href="#program" onClick={() => { handleClick('program'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Program</li></a>
+                            <a href="#testimoni" onClick={() => { handleClick('testimoni'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Testimoni</li></a>
                         </ul>
                     </div>
                     <div className="buttons flex flex-col gap-4 mt-8">

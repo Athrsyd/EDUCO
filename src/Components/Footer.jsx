@@ -6,9 +6,9 @@ const icons = dataIcon({ size: 20, color: 'currentColor' })
 
 const Footer = () => {
     return (
-        <footer className='z-10'>
+        <footer className='-mt-10 md:-mt-20 '>
             {/* Main Footer */}
-            <div className="bg-accent px-4 md:px-10">
+            <div className="bg-accent px-4 md:px-10 pt-10 md:pt-20">
                 <div className="container mx-auto py-8 md:py-10 px-4 md:px-5">
                     <div className="flex flex-col md:flex-row gap-8 md:gap-10 justify-between">
 
