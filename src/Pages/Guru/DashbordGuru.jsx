@@ -1,30 +1,18 @@
 import { useState, useEffect } from "react";
+import dataMisiDitugaskan from "../data/dataMisiDitugaskan";
+import dataListKelasGuru from "../../assets/Data/Mode Guru/dataListKelasGuru";
 
-export default function DashboardGuru({ sebutan = "Pak", username = "Budi" }) {
-  const [mounted, setMounted] = useState(false);
+export default function Dashboard() {
+
+  // TARUH DI SINI
+  const [missions, setMissions] = useState([]);
+
+  const sebutan = "Pak kopling";
+  const username = "PakKopling1";
 
   useEffect(() => {
-    setMounted(true);
+    setMissions(dataMisiDitugaskan);
   }, []);
-
-  const classes = [
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-  ];
-
-  const missions = [
-    {
-      num: "01",
-      title: "Membuang sampah pada tempatnya",
-      class: "kelas lorem",
-    },
-    {
-      num: "02",
-      title: "Membuang sampah pada tempatnya",
-      class: "kelas lorem",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[#EDEAE4] flex">
@@ -76,16 +64,16 @@ export default function DashboardGuru({ sebutan = "Pak", username = "Budi" }) {
 
           <div className="grid grid-cols-3 gap-6">
 
-            {classes.map((cls, i) => (
+            {dataListKelasGuru.map((kelas) => (
               <div
-                key={i}
+                key={kelas.id}
                 className="rounded-2xl overflow-hidden shadow hover:shadow-lg transition"
               >
                 <div className="h-32 bg-gray-300"></div>
 
                 <div className="bg-yellow-500 p-3 text-white">
-                  <p className="font-semibold">{cls.name}</p>
-                  <p className="text-sm opacity-80">{cls.teacher}</p>
+                  <p className="font-semibold">{kelas.namaKelas}</p>
+                  <p className="text-sm opacity-80">{kelas.jumlahSiswa}</p>
                 </div>
               </div>
             ))}
@@ -102,19 +90,19 @@ export default function DashboardGuru({ sebutan = "Pak", username = "Budi" }) {
 
           <div className="flex flex-col gap-4">
 
-            {missions.map((mission, i) => (
+            {missions.map((mission) => (
               <div
-                key={i}
+                key={mission.id}
                 className="flex items-center bg-green-800 text-white rounded-2xl p-4"
               >
                 <div className="text-2xl font-bold mr-6">
-                  {mission.num}
+                  {mission.id}
                 </div>
 
                 <div className="flex-1">
-                  <p className="font-semibold">{mission.title}</p>
+                  <p className="font-semibold">{mission.namaMisi}</p>
                   <p className="text-yellow-400 text-sm">
-                    {mission.class}
+                    {mission.namaKelas}
                   </p>
                 </div>
 
@@ -129,5 +117,4 @@ export default function DashboardGuru({ sebutan = "Pak", username = "Budi" }) {
 
       </main>
     </div>
-  );
-}
+  );}
