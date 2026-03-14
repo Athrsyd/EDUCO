@@ -7,8 +7,8 @@ import GameMenu from '../Pages/Siswa/GameMenu'
 import GameTutorial from '../Pages/Siswa/GameTutorial'
 import Misi from '../Pages/Siswa/Misi'
 import LandingPage from '../Pages/LandingPage/LandingPage'
-import Login from '../Pages/AuthPage/Login/Login'
-import Register from '../Pages/AuthPage/Register/Register'
+import Auth from '../Pages/AuthPage/Login/Auth'
+// import Register from '../Pages/AuthPage/Register/Register'
 import CapaianMurid from '../Pages/Guru/CapaianMurid'
 import CreateMisi from '../Pages/Guru/CreateMisi'
 import DaftarMurid from '../Pages/Guru/DaftarMurid'
@@ -31,8 +31,8 @@ const Router = () => {
         <Route path="/" element={<LandingPage />} />
 
         {/* Auth Page */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Auth />} />
+        <Route path="/register" element={<Auth isRegister={true} />} />
 
         {/* Siswa Pages */}
         <Route path="/siswa/dashbord" element={<DashboardSiswa />} />

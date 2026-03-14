@@ -1,7 +1,7 @@
 import { CircleChevronRight } from 'lucide-react';
 import { MoveLeft } from 'lucide-react';
-import { User } from 'lucide-react';
-import { Mail } from 'lucide-react';
+import { FaUser } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
 import { Lock } from 'lucide-react';
 import { Menu } from 'lucide-react';
 import { GraduationCap } from 'lucide-react';
@@ -42,8 +42,8 @@ const dataIcon = ( children ) => {
     return {
         "chervronRight": <CircleChevronRight size={children.size} color={children.color} />,
         "arrowLeft": <MoveLeft size={children.size} color={children.color} />,
-        "user": <User size={children.size} color={children.color} />,
-        "mail": <Mail size={children.size} color={children.color} />,
+        "user": <FaUser size={children.size} color={children.color} />,
+        "mail": <IoIosMail size={children.size} color={children.color} />,
         "lock": <Lock size={children.size} color={children.color} />,
         "menu": <Menu size={children.size} color={children.color} />,
         "graduationCap": <GraduationCap size={children.size} color={children.color} />,

@@ -17,11 +17,11 @@ const FAQ = (
   }
   return (
     <div className='flex items-start gap-3 md:gap-5 cursor-pointer z-999 w-full'>
-      <h1 className='font-bold text-2xl md:text-4xl text-[#2D6A0F] mt-2 flex-shrink-0'>0{nomor}</h1>
+      <h1 className='font-bold text-2xl md:text-4xl text-[#2D6A0F] mt-2 shrink-0'>0{nomor}</h1>
       <div className="flex flex-col max-w-full md:max-w-125">
         <div onClick={() => toggleOpen(`faq-${nomor}`)} className='flex flex-row justify-between items-center gap-2 md:gap-4 bg-primary py-2 md:py-3 px-4 md:px-6 rounded-full cursor-pointer z-10'>
           <h2 className='text-sm md:text-base font-bold text-last'>{Q}</h2>
-          <div className={`transition-transform duration-300 flex-shrink-0 ${isOpen === `faq-${nomor}` ? 'rotate-90' : ''}`}>
+          <div className={`transition-transform duration-300 shrink-0 ${isOpen === `faq-${nomor}` ? 'rotate-90' : ''}`}>
             {dataIcon({ size: 28, color: "white" }).chervronRight}
           </div>
         </div>

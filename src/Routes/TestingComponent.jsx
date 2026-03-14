@@ -5,6 +5,7 @@ import Diagram from "../Components/Diagram"
 import Testimoni from '../Components/Testimoni'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
+import Progress from '../Components/Progress'
 
 const TestingComponent = () => {
   return (
@@ -43,6 +44,10 @@ const TestingComponent = () => {
 
       <h1 className ='mb-10'>Footer - Landing Page</h1>
       <Footer />
+
+
+      <h1>Progress - Landing Page</h1>
+      <Progress value={75} max={110} />
     </>
   )
 }

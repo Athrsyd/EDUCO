@@ -54,7 +54,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className={`${isScrolled? 'p-0': 'p-3'} fixed top-0 left-0 z-9999 w-full transition-all duration-300 ease-in-out`}>
+        <nav className={`${isScrolled? 'p-0': 'p-5'} fixed top-0 left-0 z-9999 w-full transition-all duration-300 ease-in-out`}>
             <div className={`container mx-auto ${isScrolled? 'rounded-none': 'rounded-2xl'} flex transition-all duration-300 ease-in-out flex-row justify-between items-center py-3 px-4 md:px-8
                             bg-last/30 backdrop-blur-md`}>
                 <div className="logo z-10000">
@@ -65,7 +65,7 @@ const Navbar = () => {
                 
                 {/* Hamburger Menu Button - Mobile */}
                 <button 
-                    className='md:hidden z-10000 text-secondary p-2'
+                    className='md:hidden z-10000 text-secondary p-2 rounded-full hover:bg-secondary/20 hover:text-primary transition-colors duration-300 ease-in-out'
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
@@ -85,10 +85,10 @@ const Navbar = () => {
                     </div>
                     <div className="buttons flex flex-row justify-between items-center gap-3 lg:gap-5">
                         <Link to="/login">
-                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-last font-semibold text-primary rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Login</button>
+                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-last font-semibold text-primary rounded-full text-sm lg:text-base hover:bg-secondary hover:text-last transition-colors duration-300 ease-in-out'>Login</button>
                         </Link>
                         <Link to="/register">
-                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-linear-to-r from-primary to-secondary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors'>Register</button>
+                            <button className='px-4 py-2 lg:px-5 lg:py-2 bg-primary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors duration-300 ease-in-out'>Register</button>
                         </Link>
                     </div>
                 </div>
@@ -113,10 +113,10 @@ const Navbar = () => {
                     </div>
                     <div className="buttons flex flex-col gap-4 mt-8">
                         <Link to="/login" onClick={closeMenu}>
-                            <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full hover:bg-secondary transition-colors'>Login</button>
+                            <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full hover:bg-secondary transition-colors duration-300 ease-in-out'>Login</button>
                         </Link>
                         <Link to="/register" onClick={closeMenu}>
-                            <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full hover:bg-secondary transition-colors'>Register</button>
+                            <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full hover:bg-secondary transition-colors duration-300 ease-in-out'>Register</button>
                         </Link>
                     </div>
                 </div>

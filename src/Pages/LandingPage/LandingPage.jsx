@@ -10,6 +10,8 @@ import hiasan from '/asapIjo.png'
 import awan from '/awan.png'
 import Diagram from '../../Components/Diagram'
 import Testimoni from '../../Components/Testimoni'
+import Counter from '../../Components/Counter'
+import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
 
@@ -55,12 +57,10 @@ const LandingPage = () => {
     return (
         <div className='overflow-x-hidden'>
             <Navbar />
-            {/* Home Start */}
-            <section id="home" className="relative overflow-hidden rounded-b-3xl md:rounded-b-4xl">
-                {/* Background image */}
-                <img src={Background} alt="Background" className='absolute inset-0 w-full h-full object-cover' />
-                {/* Overlay gelap */}
-                <div className="absolute inset-0 bg-black/35"></div>
+            <section id="home" className=" h-screen relative overflow-hidden rounded-b-3xl md:rounded-b-4xl">
+
+                <img src={Background} alt="Background" className='absolute h-screen inset-0 w-full object-cover' />
+                <div className="absolute inset-0 h-screen bg-black/35"></div>
 
                 {/* Konten */}
                 <div className="relative z-10 flex flex-col text-white">
@@ -81,12 +81,17 @@ const LandingPage = () => {
                     </div>
 
                     <div className="buttons flex flex-row justify-center items-center mt-6 md:mt-10 pb-10 md:pb-20 px-4">
-                        <button className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 md:py-2 md:px-5 rounded-full text-sm md:text-base">
-                            Mulai bergabung dengan kami
-                        </button>
-                        <button className="ml-2 md:ml-4 bg-secondary hover:bg-green-700 text-white font-bold py-2 px-3 md:py-2 md:px-4 rounded-full text-sm md:text-base">
-                            Pelajari lebih lanjut tentang kami
-                        </button>
+                        <Link to="/register">
+                            <button className="rounded-full bg-primary px-4 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-secondary hover:shadow-xl md:px-5 md:py-2 md:text-base">
+                                Mulai
+                            </button>
+                        </Link >
+                        <a href="#about">
+
+                            <button className="ml-2 rounded-full bg-secondary px-3 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl md:ml-4 md:px-4 md:py-2 md:text-base">
+                                Pelajari
+                            </button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -122,14 +127,14 @@ const LandingPage = () => {
                             <div className="bentos1 w-full md:w-4/10 text-center">
                                 <h2 className='text-base md:text-lg font-bold text-secondary'>Telah di percaya oleh</h2>
                                 <div className='w-full bg-accent/80 p-5 text-center rounded-3xl mt-5'>
-                                    <h1 className="text-primary text-3xl md:text-4xl font-bold ">230+</h1>
+                                    <h1 className="text-primary text-3xl md:text-4xl font-bold "><Counter target={230} suffix="+" /></h1>
                                     <p className='text-last font-semibold text-lg md:text-xl mt-3'>Sekolah</p>
                                 </div>
                             </div>
                             <div className="bentos2 w-full md:w-4/10 text-center ">
                                 <h2 className='text-base md:text-lg font-bold text-secondary'>Di gunakan oleh</h2>
                                 <div className='w-full bg-accent/80 p-5 text-center rounded-3xl mt-5'>
-                                    <h1 className="text-primary text-3xl md:text-4xl font-bold ">1000+</h1>
+                                    <h1 className="text-primary text-3xl md:text-4xl font-bold "><Counter target={1000} suffix="+" /></h1>
                                     <p className='text-last font-semibold text-lg md:text-xl mt-3'>Siswa</p>
                                 </div>
                             </div>
@@ -169,8 +174,10 @@ const LandingPage = () => {
                                 Program ini dirancang untuk membantu siswa memahami pentingnya menjaga lingkungan melalui pembelajaran yang interaktif dan menyenangkan. <br /><br />
                                 Dengan berbagai aktivitas seperti misi lingkungan, praktik langsung, dan permainan edukatif, siswa dapat belajar sekaligus berkontribusi dalam menjaga alam sekitar. <br /><br />
                                 Kami percaya bahwa pendidikan lingkungan sejak dini dapat membentuk generasi yang lebih peduli dan bertanggung jawab terhadap bumi</p>
-                            <button className='bg-accent px-5 py-3 w-full md:w-2/5 text-lg md:text-xl text-last font-semibold rounded-full mx-auto md:mx-0'>
+                            <Link to='/login'>
+                            <button className='mx-auto w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:mx-0 md:w-2/5 md:text-xl'>
                                 Mulai Sekarang</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -190,9 +197,11 @@ const LandingPage = () => {
                         <p className='text-base md:text-lg text-justify text-primary font-semibold mt-3 md:mt-5'>
                             Kami menyediakan permainan edukatif berbasiskan lingkungan yang membuat siswa bisa secara langsung belajar dan mempraktikkan bagaimana cara melestarikan lingkungan.
                         </p>
-                        <button className='bg-accent px-5 py-3 w-full md:w-1/2 text-lg md:text-xl text-last font-semibold rounded-full'>
-                            Daftar Sekarang
-                        </button>
+                        <Link to='/login'>
+                            <button className='w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:w-1/2 md:text-xl'>
+                                Daftar Sekarang
+                            </button>
+                        </Link>
                     </div>
                     <div className="kanan w-full md:w-1/2">
                         <SliderProgram />
@@ -274,9 +283,12 @@ const LandingPage = () => {
 
                     <div className="w-full flex justify-center flex-col py-4 gap-15 text-center items-center bg-primary rounded-4xl">
                         <h1 className='text-3xl font-bold text-last'
-                        >Mereka sudah percaya dengan EDUCO. <br/> Sekarang giliran-mu !</h1>
-                        <button className='py-6 px-12 bg-last text-primary text-3xl
-                        rounded-3xl font-bold '>Daftar Sekarang!</button>
+                        >Mereka sudah percaya dengan EDUCO. <br /> Sekarang giliran-mu !</h1>
+                        <Link to='/login'>
+                        <button className='rounded-3xl bg-last px-12 py-6 text-3xl font-bold text-primary shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent hover:text-last hover:shadow-2xl'>
+                            Daftar Sekarang!
+                        </button>
+                        </Link>
                     </div>
                     <br /><br />
                 </div>

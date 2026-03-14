@@ -41,3 +41,8 @@
     transform: translateX(40%);
   }
 }
+
+
+::-webkit-scrollbar {
+display: none;
+}
