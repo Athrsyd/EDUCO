@@ -35,14 +35,14 @@ const Router = () => {
         <Route path="/register" element={<Auth isRegister={true} />} />
 
         {/* Siswa Pages */}
-        <Route path="/siswa/dashbord" element={<DashboardSiswa />} />
+        <Route path="/siswa/dashboard" element={<DashboardSiswa />} />
         <Route path="/siswa/game-leaderboard" element={<GameLeaderBoard />} />
         <Route path="/siswa/game-menu" element={<GameMenu />} />
         <Route path="/siswa/game-tutorial" element={<GameTutorial />} />
         <Route path="/siswa/misi" element={<Misi />} />
 
         {/* Guru Pages */}
-        <Route path="/guru/dashbord" element={<DashbordGuru />} />
+        <Route path="/guru/dashboard" element={<DashbordGuru />} />
         <Route path="/guru/kelas" element={<Kelas />} />
         <Route path="/guru/setting-misi" element={<SettingMisi />} />
         <Route path="/guru/capaian-murid" element={<CapaianMurid />} />
