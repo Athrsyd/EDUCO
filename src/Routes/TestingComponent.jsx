@@ -6,6 +6,7 @@ import Testimoni from '../Components/Testimoni'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
 import Progress from '../Components/Progress'
+import ParalaxBurung from '../Components/ParalaxBurung'
 
 const TestingComponent = () => {
   return (
@@ -48,6 +49,21 @@ const TestingComponent = () => {
 
       <h1>Progress - Landing Page</h1>
       <Progress value={75} max={110} />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1>ParalaxBurung - Landing Page</h1>
+      <ParalaxBurung />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   )
 }

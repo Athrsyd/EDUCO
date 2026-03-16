@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import dataMisiDitugaskan from "../data/dataMisiDitugaskan";
+import dataMisiDitugaskan from "../../assets/Data/Mode Guru/dataMisiDitugaskan";
 import dataListKelasGuru from "../../assets/Data/Mode Guru/dataListKelasGuru";
 
 export default function Dashboard() {
@@ -10,8 +10,13 @@ export default function Dashboard() {
   const sebutan = "Pak kopling";
   const username = "PakKopling1";
 
-  useEffect(() => {
+  const handleFecthMissions = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setMissions(dataMisiDitugaskan);
+  }
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    handleFecthMissions();
   }, []);
 
   return (

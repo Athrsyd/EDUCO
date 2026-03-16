@@ -12,6 +12,7 @@ import Diagram from '../../Components/Diagram'
 import Testimoni from '../../Components/Testimoni'
 import Counter from '../../Components/Counter'
 import { Link } from 'react-router-dom'
+import ParalaxBurung from '../../Components/ParalaxBurung'
 
 const LandingPage = () => {
 
@@ -175,8 +176,8 @@ const LandingPage = () => {
                                 Dengan berbagai aktivitas seperti misi lingkungan, praktik langsung, dan permainan edukatif, siswa dapat belajar sekaligus berkontribusi dalam menjaga alam sekitar. <br /><br />
                                 Kami percaya bahwa pendidikan lingkungan sejak dini dapat membentuk generasi yang lebih peduli dan bertanggung jawab terhadap bumi</p>
                             <Link to='/login'>
-                            <button className='mx-auto w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:mx-0 md:w-2/5 md:text-xl'>
-                                Mulai Sekarang</button>
+                                <button className='mx-auto w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:mx-0 md:w-2/5 md:text-xl'>
+                                    Mulai Sekarang</button>
                             </Link>
                         </div>
                     </div>
@@ -186,11 +187,12 @@ const LandingPage = () => {
 
 
             {/* Program Start*/}
-            <section id='program' className='relative -mt-8 md:-mt-10 pt-8 md:pt-10 z-20 px-4 md:px-30 bg-last '>
+            <section id='program' className='relative -mt-8 md:-mt-10 pt-8 md:pt-10 z-20 px-4 md:px-30 bg-last overflow-visible'>
                 <div className="hiasan absolute -z-999 left-0 md:left-220 -top-20 md:-top-30 w-full">
                     <img src={hiasan} alt="asep" className='w-1/2 max-w-xs md:max-w-full' />
                 </div>
-                <div className="container w-full  py-10 md:py-20 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-20">
+                <ParalaxBurung className=" hidden lg:block absolute inset-0 z-60 -mb-95" />
+                <div className="container relative z-20 w-full py-10 md:py-20 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-20">
                     <div className="kiri w-full md:w-1/2 flex flex-col gap-6 md:gap-10">
                         {/* Jangan lupa ini ganti font */}
                         <h1 className='text-4xl sm:text-5xl md:text-7xl font-anton text-center md:text-start bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent'>Program Kami</h1>
@@ -207,7 +209,7 @@ const LandingPage = () => {
                         <SliderProgram />
                     </div>
                 </div>
-                <div className="container absolute z-999 left-0 -bottom-20 w-full flex flex-row  justify-start items-end">
+                <div className="container absolute z-40 left-0 -bottom-20 w-full flex flex-row  justify-start items-end">
                     {Array(10).fill().map((_, index) => (
                         <img src={awan} alt="" className='w-20 sm:w-32 md:w-3/10 -ml-10 md:-ml-20' key={index} />
                     ))}
@@ -285,9 +287,9 @@ const LandingPage = () => {
                         <h1 className='text-3xl font-bold text-last'
                         >Mereka sudah percaya dengan EDUCO. <br /> Sekarang giliran-mu !</h1>
                         <Link to='/login'>
-                        <button className='rounded-3xl bg-last px-12 py-6 text-3xl font-bold text-primary shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent hover:text-last hover:shadow-2xl'>
-                            Daftar Sekarang!
-                        </button>
+                            <button className='rounded-3xl bg-last px-12 py-6 text-3xl font-bold text-primary shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent hover:text-last hover:shadow-2xl'>
+                                Daftar Sekarang!
+                            </button>
                         </Link>
                     </div>
                     <br /><br />
