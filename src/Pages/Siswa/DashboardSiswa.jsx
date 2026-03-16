@@ -181,7 +181,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
             </div>
 
             {/* Logout at bottom */}
-            <div onClick={handleLogout} className="mt-auto mb-6 w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
+            <div onClick={handleLogout}className="mt-auto mb-6 w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
               {dataIcon({ size: 20, color: "#48A111" }).logout}
             </div>
           </aside>
