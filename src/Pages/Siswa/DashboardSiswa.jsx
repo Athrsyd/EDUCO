@@ -2,9 +2,12 @@
 import { useState, useEffect } from "react";
 import dataIcon from "../../assets/Data/icon";
 import { data } from "react-router-dom";
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Sidebar from "../../Components/Sidebar";
 import Progress from "../../Components/Progress";
+import dataListKelas from "../../assets/Data/Mode Siswa/dataListKelas";
+import dataListMisi from "../../assets/Data/Mode Siswa/dataListMisi";
+
 
 export default function Dashboard({ username = "Budi", onBack }) {
   const [progress, setProgress] = useState(0);
@@ -22,35 +25,19 @@ export default function Dashboard({ username = "Budi", onBack }) {
     return () => clearTimeout(timer);
   }, []);
 
-  const classes = [
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-    { name: "Kelas lorem", teacher: "Pak Lorem Ipsum" },
-  ];
+  const classes = dataListKelas.map((item) => ({
+    name: item.namaKelas,
+    teacher: item.namaGuru,
+  }));
 
-  const missions = [
-    {
-      num: "01",
-      title: "Membuang sampah pada tempatnya",
-      class: "kelas lorem",
-      progress: "1/5",
-      completed: false,
-    },
-    {
-      num: "02",
-      title: "Membuang sampah pada tempatnya",
-      class: "kelas lorem",
-      progress: "1/5",
-      completed: false,
-    },
-    {
-      num: "03",
-      title: "Membuang sampah pada tempatnya",
-      class: "kelas lorem",
-      progress: "5/5",
-      completed: true,
-    },
-  ];
+  const missions = dataListMisi.map((item) => ({
+    num: item.id,
+    title: item.namaMisi,
+    class: item.namaKelas,
+    progress: `${item.misiSelesai}/${item.target}`,
+    completed: item.selesai,
+  }));
+
 
 
   return (
@@ -118,23 +105,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
               {dataIcon({ size: 20, color: "#48A111" }).menu}
             </div>
             <div className="flex items-center">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                className="mr-0.5"
-              >
-                <path
-                  d="M10 2C6 2 2 6 2 10s4 8 8 8 8-4 8-8-4-8-8-8zm0 3l5 5-5 5V5z"
-                  fill="#48A111"
-                />
-              </svg>
-              <span
-                className="font-extrabold text-xl tracking-tight"
-                style={{ color: "#1A1A1A" }}
-              >
-                DUCO
-              </span>
+              {/* logo */}
             </div>
           </div>
 
@@ -153,12 +124,16 @@ export default function Dashboard({ username = "Budi", onBack }) {
         {/* ========== BODY: SIDEBAR + MAIN ========== */}
         <div className="flex flex-1">
           {/* ========== LEFT SIDEBAR (Desktop) ========== */}
-          <Sidebar 
-          handleLogout={handleLogout} 
-          icon1={dataIcon({ size: 20, color: "#48A111" }).graduationCap} 
-          icon2={dataIcon({ size: 20, color: "#48A111" }).list} 
-          icon3={dataIcon({ size: 20, color: "#48A111" }).gamepad} 
-          icon4={dataIcon({ size: 20, color: "#48A111" }).logOut}/>
+          <Sidebar
+            handleLogout={handleLogout}
+            icon1={dataIcon({ size: 20, color: "#48A111" }).graduationCap}
+            icon2={dataIcon({ size: 20, color: "#48A111" }).listTodo}
+            icon3={dataIcon({ size: 20, color: "#48A111" }).gamepad}
+            icon4={dataIcon({ size: 20, color: "#48A111" }).logout}
+            link1="/siswa/dashboard"
+            link2="/siswa/misi"
+            link3="/siswa/game-menu"
+          />
 
           {/* ========== MAIN CONTENT ========== */}
           <main className="flex-1 px-4 md:px-8 py-6 pb-28 md:pb-6" style={{ overflowX: "hidden" }}>
