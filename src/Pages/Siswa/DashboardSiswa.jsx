@@ -1,9 +1,18 @@
 // Dashboard.jsx
 import { useState, useEffect } from "react";
+import dataIcon from "../../assets/Data/icon";
+import { data } from "react-router-dom";
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function Dashboard({ username = "Budi", onBack }) {
   const [progress, setProgress] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/');
+    localStorage.removeItem('userRole');
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -41,68 +50,6 @@ export default function Dashboard({ username = "Budi", onBack }) {
     },
   ];
 
-  // Inline SVG Icons (no lucide-react)
-  const GraduationCapIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-    </svg>
-  );
-
-  const ListChecksIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="8" y1="6" x2="21" y2="6"/>
-      <line x1="8" y1="12" x2="21" y2="12"/>
-      <line x1="8" y1="18" x2="21" y2="18"/>
-      <line x1="3" y1="6" x2="3.01" y2="6"/>
-      <line x1="3" y1="12" x2="3.01" y2="12"/>
-      <line x1="3" y1="18" x2="3.01" y2="18"/>
-    </svg>
-  );
-
-  const GamepadIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="6" y1="12" x2="10" y2="12"/>
-      <line x1="8" y1="10" x2="8" y2="14"/>
-      <line x1="15" y1="13" x2="15.01" y2="13"/>
-      <line x1="18" y1="11" x2="18.01" y2="11"/>
-      <rect x="2" y="6" width="20" height="12" rx="2"/>
-    </svg>
-  );
-
-  const LogOutIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-      <polyline points="16 17 21 12 16 7"/>
-      <line x1="21" y1="12" x2="9" y2="12"/>
-    </svg>
-  );
-
-  const ChevronRightIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="9 18 15 12 9 6"/>
-    </svg>
-  );
-
-  const CheckIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-  );
-
-  const TreeIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 19V6M5 12l7-7 7 7M5 19l7-7 7 7"/>
-    </svg>
-  );
-
-  const MenuIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="3" y1="12" x2="21" y2="12"/>
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <line x1="3" y1="18" x2="21" y2="18"/>
-    </svg>
-  );
 
   return (
     <>
@@ -161,12 +108,12 @@ export default function Dashboard({ username = "Budi", onBack }) {
                 title="Kembali"
               >
                 <div className="rotate-180">
-                  <ChevronRightIcon />
+                  {dataIcon({ size: 20, color: "#48A111" }).arrowRight}
                 </div>
               </button>
             )}
             <div className="mr-4 cursor-pointer">
-              <MenuIcon />
+              {dataIcon({ size: 20, color: "#48A111" }).menu}
             </div>
             <div className="flex items-center">
               <svg
@@ -191,7 +138,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
           {/* Right side */}
           <div className="flex items-center gap-2">
-            <TreeIcon />
+            {dataIcon({ size: 20, color: "#48A111" }).treePine}
             <span
               className="font-bold text-lg"
               style={{ color: "#1A1A1A" }}
@@ -219,23 +166,23 @@ export default function Dashboard({ username = "Budi", onBack }) {
               style={{ backgroundColor: "#48A111" }}
             >
               <div style={{ color: "#F7F0F0" }}>
-                <GraduationCapIcon />
+                {dataIcon({ size: 20, color: "#F7F0F0" }).graduationCap}
               </div>
             </div>
 
             {/* Inactive: ListChecks */}
             <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              <ListChecksIcon />
+              {dataIcon({ size: 20, color: "#48A111" }).list}
             </div>
 
             {/* Inactive: Gamepad2 */}
             <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              <GamepadIcon />
+              {dataIcon({ size: 20, color: "#48A111" }).gamepad}
             </div>
 
             {/* Logout at bottom */}
-            <div className="mt-auto mb-6 w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              <LogOutIcon />
+            <div onClick={handleLogout} className="mt-auto mb-6 w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
+              {dataIcon({ size: 20, color: "#48A111" }).logout}
             </div>
           </aside>
 
@@ -337,7 +284,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
                 {classes.map((cls, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer flex-shrink-0"
+                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer shrink-0"
                     style={{ width: "192px" }}
                   >
                     <div
@@ -404,7 +351,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
                         {/* Divider */}
                         <div
-                          className="flex-shrink-0"
+                          className="shrink-0"
                           style={{
                             width: "2px",
                             height: "40px",
@@ -430,16 +377,16 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
                         {/* Progress */}
                         <span
-                          className="font-extrabold text-sm flex-shrink-0 mr-2"
+                          className="font-extrabold text-sm shrink-0 mr-2"
                           style={{ color: "rgba(247,240,240,0.5)", minWidth: "36px", textAlign: "right" }}
                         >
                           {mission.progress}
                         </span>
 
                         {/* Check icon */}
-                        <div className="flex-shrink-0 mr-3" style={{ color: "rgba(247,240,240,0.5)" }}>
+                        <div className="shrink-0 mr-3" style={{ color: "rgba(247,240,240,0.5)" }}>
                           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
+                            <polyline points="20 6 9 17 4 12" />
                           </svg>
                         </div>
                       </div>
@@ -523,7 +470,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
                         }
                       >
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F0F0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                          <polyline points="9 18 15 12 9 6"/>
+                          <polyline points="9 18 15 12 9 6" />
                         </svg>
                       </div>
                     </div>
@@ -549,23 +496,23 @@ export default function Dashboard({ username = "Budi", onBack }) {
             style={{ backgroundColor: "#48A111" }}
           >
             <div style={{ color: "#F7F0F0" }}>
-              <GraduationCapIcon />
+              {dataIcon({ size: 20, color: "#F7F0F0" }).graduationCap}
             </div>
           </div>
 
           {/* ListChecks */}
           <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            <ListChecksIcon />
+            {dataIcon({ size: 20, color: "#48A111" }).list}
           </div>
 
           {/* Gamepad2 */}
           <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            <GamepadIcon />
+            {dataIcon({ size: 20, color: "#48A111" }).gamepad}
           </div>
 
           {/* LogOut */}
           <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            <LogOutIcon />
+            {dataIcon({ size: 20, color: "#48A111" }).logOut}
           </div>
         </nav>
       </div>
