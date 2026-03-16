@@ -12,11 +12,10 @@ const Footer = () => {
                 <div className="container mx-auto py-8 md:py-10 px-4 md:px-5">
                     <div className="flex flex-col md:flex-row gap-8 md:gap-10 justify-between">
 
-                        {/* Left - Logo, tagline, socials, download */}
                         <div className="flex flex-col gap-4 max-w-full md:max-w-xs">
                             <img src={logoEduco} alt="Logo EDUCO" className="w-36 md:w-44 mx-auto md:mx-0" />
-                            <p className="text-base md:text-lg font-semibold italic text-secondary text-center md:text-left">
-                                "Lorem ipsum lorem ipsum"
+                            <p className="text-base md:text-md font-semibold italic text-secondary text-center md:text-left">
+                                "Generasi Penerus, Hidupkan Lingkungan"
                             </p>
 
                             <div className = "h-0.5 bg-last/40 w-full md:w-55 rounded-full mx-auto md:mx-0"></div>

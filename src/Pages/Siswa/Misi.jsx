@@ -2,7 +2,9 @@ import React from 'react'
 
 const Misi = () => {
   return (
-    <div>Misi</div>
+    <div>
+      misi
+    </div>
   )
 }
 

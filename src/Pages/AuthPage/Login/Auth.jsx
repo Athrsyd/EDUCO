@@ -124,12 +124,13 @@ export default function Auth({ onBack }) {
                 />
               </div>
 
-              <button
+              <input
+                type="submit"
                 onClick={handleLoginSubmit}
                 className="mt-4 w-full cursor-pointer rounded-full bg-[#48A111] px-8 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 ease-in-out hover:scale-105 hover:bg-[#3d8a0e]"
-              >
-                Login
-              </button>
+                value="Login"
+                
+              />
             </div>
 
             <div className="relative hidden w-1/2 flex-col items-center justify-center bg-[#48A111] p-10 md:flex">

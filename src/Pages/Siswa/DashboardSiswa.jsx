@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import dataIcon from "../../assets/Data/icon";
 import { data } from "react-router-dom";
 import {Link, useNavigate} from 'react-router-dom'
+import Sidebar from "../../Components/Sidebar";
+import Progress from "../../Components/Progress";
 
 export default function Dashboard({ username = "Budi", onBack }) {
   const [progress, setProgress] = useState(0);
@@ -151,40 +153,12 @@ export default function Dashboard({ username = "Budi", onBack }) {
         {/* ========== BODY: SIDEBAR + MAIN ========== */}
         <div className="flex flex-1">
           {/* ========== LEFT SIDEBAR (Desktop) ========== */}
-          <aside
-            className="hidden md:flex flex-col items-center pt-4 gap-6"
-            style={{
-              width: "64px",
-              minWidth: "64px",
-              backgroundColor: "#EDEAE4",
-              height: "calc(100vh - 64px)",
-            }}
-          >
-            {/* Active: Graduation Cap */}
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer"
-              style={{ backgroundColor: "#48A111" }}
-            >
-              <div style={{ color: "#F7F0F0" }}>
-                {dataIcon({ size: 20, color: "#F7F0F0" }).graduationCap}
-              </div>
-            </div>
-
-            {/* Inactive: ListChecks */}
-            <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              {dataIcon({ size: 20, color: "#48A111" }).list}
-            </div>
-
-            {/* Inactive: Gamepad2 */}
-            <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              {dataIcon({ size: 20, color: "#48A111" }).gamepad}
-            </div>
-
-            {/* Logout at bottom */}
-            <div onClick={handleLogout}className="mt-auto mb-6 w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-150">
-              {dataIcon({ size: 20, color: "#48A111" }).logout}
-            </div>
-          </aside>
+          <Sidebar 
+          handleLogout={handleLogout} 
+          icon1={dataIcon({ size: 20, color: "#48A111" }).graduationCap} 
+          icon2={dataIcon({ size: 20, color: "#48A111" }).list} 
+          icon3={dataIcon({ size: 20, color: "#48A111" }).gamepad} 
+          icon4={dataIcon({ size: 20, color: "#48A111" }).logOut}/>
 
           {/* ========== MAIN CONTENT ========== */}
           <main className="flex-1 px-4 md:px-8 py-6 pb-28 md:pb-6" style={{ overflowX: "hidden" }}>
@@ -206,29 +180,12 @@ export default function Dashboard({ username = "Budi", onBack }) {
               </h2>
             </div>
 
+
             {/* SECTION 2: Progress Bar */}
             <div
-              className={`flex items-center gap-4 mt-2 mb-8 ${mounted ? "anim-fadein anim-delay-300" : "opacity-0"}`}
+              className={`flex w-full px-10 items-center gap-4 mt-2 mb-8 ${mounted ? "anim-fadein anim-delay-300" : "opacity-0"}`}
             >
-              <div
-                className="flex-1 h-4 rounded-full"
-                style={{ backgroundColor: "#D9D9D9" }}
-              >
-                <div
-                  className="h-4 rounded-full"
-                  style={{
-                    backgroundColor: "#48A111",
-                    width: `${progress}%`,
-                    transition: "all 1000ms ease-out",
-                  }}
-                />
-              </div>
-              <span
-                className="font-semibold text-sm ml-3"
-                style={{ color: "#1A1A1A", minWidth: "32px" }}
-              >
-                {progress}%
-              </span>
+              <Progress value={progress} max={100} />
             </div>
 
             {/* SECTION 3: Kelas anda */}

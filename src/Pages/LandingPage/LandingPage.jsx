@@ -1,4 +1,4 @@
-﻿import React from 'react'
+﻿import {useState,useEffect} from 'react'
 import Navbar from '../../Components/Navbar'
 import Background from '/bg-new.jpg'
 import Footer from '../../Components/Footer'
@@ -15,22 +15,32 @@ import { Link } from 'react-router-dom'
 import ParalaxBurung from '../../Components/ParalaxBurung'
 
 const LandingPage = () => {
+    const [role, setRole] = useState(null)
+    const ctaPath = role ? `/${role}/dashboard` : '/register'
+
+    useEffect(() => {
+        const getUserRole = () => localStorage.getItem('userRole')
+        const peran = getUserRole()
+        const isValidRole = peran === 'guru' || peran === 'siswa'
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setRole(isValidRole ? peran : null)
+    }, [])
 
     const dataProgram = [
         {
             id: 1,
-            title: 'Program 1',
-            description: 'Ruang Kelas Pembelajaran Lingkungan yang Terintegrasi dengan Sekolah '
+            title: 'Kelas Interaktif',
+            description: 'Ruang kelas digital yang terintegrasi dengan kegiatan sekolah untuk belajar isu lingkungan secara kontekstual.'
         },
         {
             id: 2,
-            title: 'Program 2',
-            description: 'Pembelajaran Lingkungan berbasis misi / quest'
+            title: 'Misi Aksi',
+            description: 'Pembelajaran berbasis misi dan tantangan nyata agar siswa terbiasa berpikir kritis dan bertindak solutif.'
         },
         {
             id: 3,
-            title: 'Program 3',
-            description: 'Game Edukatif bertema pembelajaran Lingkungan'
+            title: 'Game Edukatif',
+            description: 'Permainan edukatif bertema lingkungan untuk memperkuat pemahaman melalui pengalaman yang menyenangkan.'
         }
     ]
     const dataFAQ = [
@@ -51,8 +61,8 @@ const LandingPage = () => {
         },
         {
             id: 4,
-            Q: 'Apakah Educo Berbayar?',
-            A: 'EDUCO dibuat dengan niat murni untuk memberikan akses pendidikan lingkungan yang berkualitas kepada semua orang, tanpa memungut biaya. Kami percaya bahwa pengetahuan tentang lingkungan harus dapat diakses oleh semua orang, tanpa terkecuali.'
+            Q: 'Apa manfaat utama EDUCO bagi sekolah?',
+            A: 'EDUCO membantu sekolah menyusun pembelajaran lingkungan yang lebih terarah, terukur, dan menarik. Guru dapat memantau capaian siswa, sementara siswa belajar melalui aktivitas yang relevan dengan kehidupan sehari-hari.'
         },
     ]
     return (
@@ -118,7 +128,7 @@ const LandingPage = () => {
                     <div className="kanan w-full md:w-1/2 mt-6 md:mt-0">
                         <div className="w-full mx-auto">
                             <p className=' text-sm md:text-md text-justify font-semibold text-secondary'>
-                                EDUCO hadir sebagai solusi dari maraknya isi lingkungan yang terjadi dan juga sebagai sarana untuk meningkatkan efektivitas serta kualitas pendidikan lingkungan <br /><br />
+                                EDUCO hadir sebagai solusi atas meningkatnya persoalan lingkungan, sekaligus menjadi sarana untuk meningkatkan efektivitas dan kualitas pendidikan lingkungan di sekolah. <br /><br />
                                 Melalui berbagai program dan fitur yang inovatif, kami berupaya untuk mendukung guru dan siswa dalam mengakses materi pembelajaran secara mudah, fleksibel, dan efektif. <br /><br />
                                 Kami percaya bahwa teknologi dapat menjadi jembatan untuk menciptakan pengalaman belajar yang lebih baik bagi generasi masa depan.</p>
 
@@ -256,10 +266,10 @@ const LandingPage = () => {
                         </h1> <br />
 
                         <p className='text-base md:text-lg text-justify px-12 text-last font-semibold'>
-                            Statistik kasus pencemaran alam tahunan Lorem ipsum dolor sit, amet consectetur
-                            adipisicing elit. Minus officiis fugiat dolorum! Itaque modi quae magnam voluptas.
-                            Odio dolores suscipit iusto repellendus alias perferendis esse? menunjukkan peningkatan
-                            yang signifikan dalam beberapa kategori, menandakan perlunya intervensi yang lebih efektif.
+                            Data tahunan menunjukkan bahwa persoalan pencemaran udara, air, dan sampah rumah tangga
+                            masih menjadi tantangan utama. Melalui statistik ini, siswa dapat memahami pola perubahan
+                            dari tahun ke tahun, mengenali faktor penyebab, serta menyusun langkah pencegahan yang
+                            lebih tepat sasaran bersama sekolah dan masyarakat.
                         </p>
                     </div>
                     <div className="diagram w-full px-10 mx-auto">
@@ -285,10 +295,10 @@ const LandingPage = () => {
 
                     <div className="w-full flex justify-center flex-col py-4 gap-15 text-center items-center bg-primary rounded-4xl">
                         <h1 className='text-3xl font-bold text-last'
-                        >Mereka sudah percaya dengan EDUCO. <br /> Sekarang giliran-mu !</h1>
-                        <Link to='/login'>
+                        >{role ? `Kamu telah masuk sebagai ${role}. Lanjutkan pembelajaranmu sekarang.` : <p className='text-2xl'>Ribuan pelajar dan guru sudah memulai bersama EDUCO.<br />Sekarang giliranmu membawa perubahan untuk lingkungan.</p>}</h1>
+                        <Link to={ctaPath}>
                             <button className='rounded-3xl bg-last px-12 py-6 text-3xl font-bold text-primary shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-accent hover:text-last hover:shadow-2xl'>
-                                Daftar Sekarang!
+                                {role ? 'Masuk ke Dashboard' : 'Daftar Sekarang!'}
                             </button>
                         </Link>
                     </div>
