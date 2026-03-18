@@ -1,13 +1,12 @@
-// import { useState } from 'react'
-// import './App.css'
-import Router from "./Routes/Router"
+import { BrowserRouter } from "react-router-dom";
+import Router from "./Routes/Router";
 
 function App() {
-
   return (
-    <Router />
-
-  )
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
