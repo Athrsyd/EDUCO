@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Kelas from '../Pages/Guru/Kelas'
 import SettingMisi from '../Pages/Guru/SettingMisi'
 import GameLeaderBoard from '../Pages/Siswa/GameLeaderBoard'
@@ -53,10 +53,9 @@ const AuthOnlyWhenLoggedOut = ({ children }) => {
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Testing Component */}
-        <Route path="/testing" element={<TestingComponent />} />
+    <Routes>
+      {/* Testing Component */}
+      <Route path="/testing" element={<TestingComponent />} />
 
         {/* Landing Page */}
         <Route path="/" element={<LandingPage />} />
@@ -82,7 +81,6 @@ const Router = () => {
         <Route path="/guru/edit-misi/:id" element={<ProtectedRoute allowedRole="guru"><EditMisi /></ProtectedRoute>} />
         {/* <Route path="/guru/"/> */}
       </Routes>
-    </BrowserRouter>
   )
 }
 

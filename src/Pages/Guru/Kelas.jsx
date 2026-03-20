@@ -58,7 +58,7 @@ export default function Dashboard() {
     {dataIcon({ size: 36, color: "#2E7D32" }).listTodo}
   </div>
 
-  <Link to="/setting-misi">
+  <Link to="/guru/setting-misi">
     <button className="bg-[#E0E0E0] text-[#2E7D32] px-6 py-1 rounded-full text-[13px]">
       Lakukan
     </button>

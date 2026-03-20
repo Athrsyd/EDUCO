@@ -1,6 +1,7 @@
 import React from "react";
 import dataMisiDitugaskan from "../../assets/Data/Mode Guru/dataMisiDitugaskan";
 import dataIcon from "/src/assets/Data/icon.jsx";
+import { Link } from "react-router-dom";
 
 export default function Misi() {
   return (
@@ -28,7 +29,7 @@ export default function Misi() {
       {/* MAIN */}
       <div className="flex-1 px-10 py-6">
         <div className="flex items-center gap-3 mb-8">
-          <img 
+          <img
           src="/src/assets/eduko-removebg-preview.png"
           alt="" />
         </div>
@@ -39,10 +40,12 @@ export default function Misi() {
         </h1>
 
         {/* BUTTON */}
-        <button className="flex items-center gap-2 bg-[#4CAF50] text-white px-5 py-2 rounded-full mb-6">
-          Buat Misi
-          {dataIcon({ size: 18, color: "#FFFFFF" }).plus}
-        </button>
+        <Link to="/guru/create-misi">
+          <button className="flex items-center gap-2 bg-[#4CAF50] text-white px-5 py-2 rounded-full mb-6">
+            Buat Misi
+            {dataIcon({ size: 18, color: "#FFFFFF" }).plus}
+          </button>
+        </Link>
 
         {/* LIST MISI */}
         <div className="flex flex-col gap-5">
