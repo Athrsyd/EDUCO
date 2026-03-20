@@ -1,9 +1,15 @@
 import React from "react";
 import dataIcon from "../../assets/Data/icon";
 import daftarSiswa from "../../assets/Data/Mode Guru/dataDaftarSiswa";
-
+import { Navigate, useNavigate } from "react-router-dom";
 export default function DaftarMurid() {
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/");
+    localStorage.removeItem("userRole");
+  };
 
 
   const icon = dataIcon({ size: 22, color: "#2f7d32" });
@@ -25,7 +31,9 @@ export default function DaftarMurid() {
         </div>
 
         {/* Logout */}
-        <div className="mt-auto mb-8 cursor-pointer">
+        <div onClick={handleLogout}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
           {icon.logout}
         </div>
 

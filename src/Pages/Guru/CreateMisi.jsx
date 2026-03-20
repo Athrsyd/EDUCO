@@ -16,6 +16,11 @@ export default function BuatMisi() {
     if (target > 1) setTarget((t) => t - 1);
   };
 
+  const handleLogout = () => {
+    navigate("/");
+    localStorage.removeItem("userRole");
+  };
+
   const handleTargetNext = () => {
     setTarget((t) => t + 1);
   };
@@ -62,7 +67,11 @@ export default function BuatMisi() {
         </div>
 
         {/* Logout */}
-        <div>
+        <div 
+        onClick={handleLogout}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
+          
           {dataIcon({ size: 24, color: "#9E9E9E" }).logout}
         </div>
 

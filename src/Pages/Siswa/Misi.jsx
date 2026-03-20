@@ -19,7 +19,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend)
 const Misi = () => {
   const navigate = useNavigate()
   const [filter, setFilter] = useState('belum')
-
+}
   const handleLogout = () => {
     localStorage.removeItem('userRole')
     navigate('/')
@@ -105,7 +105,6 @@ const Misi = () => {
           <button type="button" className="text-primary">
             {dataIcon({ size: 24, color: '#2B7A1F' }).menu}
           </button>
-          <h1 className="text-primary font-black text-3xl tracking-tight">EDUCO</h1>
         </div>
         <div className="flex items-center gap-2">
           <span>{dataIcon({ size: 22, color: '#4A4A4A' }).treePine}</span>
@@ -125,7 +124,9 @@ const Misi = () => {
           link3="/siswa/game-menu"
         />
 
-        <main className="flex-1 px-4 py-6 md:px-8">
+        {/* ========== MAIN CONTENT ========== */}
+        {/* Tambahkan pb-28 di mobile agar konten bawah tidak tertutup navbar fixed */}
+        <main className="flex-1 px-4 py-6 pb-28 md:pb-6 md:px-8 ml-0 md:ml-20">
           <section className="rounded-[30px] bg-[#7bbb4f] px-6 py-7 md:px-10 md:py-9">
             <h2 className="text-last text-[clamp(1.5rem,2vw,2rem)] font-bold">Statistik capaian misi anda</h2>
             <div className="mt-7 h-44 md:h-52">
@@ -209,8 +210,49 @@ const Misi = () => {
           </section>
         </main>
       </div>
+
+      {/* ========== MOBILE BOTTOM NAV ========== */}
+      <nav
+        className="md:hidden fixed bottom-0 left-0 right-0 flex items-center justify-around py-3"
+        style={{
+          backgroundColor: "#e8e3dc",
+          borderTop: "1px solid rgba(0,0,0,0.08)",
+          zIndex: 50,
+        }}
+      >
+        {/* Dashboard (Inactive) */}
+        <div 
+          className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150"
+          onClick={() => navigate('/siswa/dashboard')}
+        >
+          {dataIcon({ size: 20, color: "#48A111" }).graduationCap}
+        </div>
+
+        {/* Misi (Active) */}
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer"
+          style={{ backgroundColor: "#48A111" }}
+        >
+          <div style={{ color: "#F7F0F0" }}>
+            {dataIcon({ size: 20, color: "#F7F0F0" }).list}
+          </div>
+        </div>
+
+        {/* Gamepad (Inactive) */}
+        <div 
+          className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150"
+          onClick={() => navigate('/siswa/game-menu')}
+        >
+          {dataIcon({ size: 20, color: "#48A111" }).gamepad}
+        </div>
+
+        {/* LogOut */}
+        <div 
+          className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150"
+          onClick={handleLogout}
+        >
+          {dataIcon({ size: 20, color: "#48A111" }).logOut}
+        </div>
+      </nav>
     </div>
   )
-}
-
-export default Misi

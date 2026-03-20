@@ -1,9 +1,21 @@
 import React from "react";
 import dataPelajar from "../../assets/Data/dataPelajar";
 import dataIcon from "/src/assets/Data/icon.jsx";
+import { Navigate, useNavigate } from "react-router-dom";
+
+
 export default function DaftarMurid() {
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate ("/");
+    localStorage.removeItem("userRole");
+  };
+
+
   return (
-    <div className="flex h-screen bg-[#F3F0EC]">
+    <div className="flex min-h-screen bg-[#F3F0EC]">
 
       {/* SIDEBAR */}
       <div className="w-[80px] bg-[#E7E3DE] flex flex-col items-center py-4 gap-6">
@@ -19,7 +31,10 @@ export default function DaftarMurid() {
         </div>
 
         {/* Logout Icon */}
-        <div>
+        <div 
+        onClick={handleLogout}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
           {dataIcon({ size: 24, color: "#9E9E9E" }).logout}
         </div>
       </div>
