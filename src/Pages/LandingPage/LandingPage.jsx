@@ -1,4 +1,4 @@
-﻿import {useState,useEffect} from 'react'
+﻿import { useState, useEffect } from 'react'
 import Navbar from '../../Components/Navbar'
 import Background from '/bg-new.jpg'
 import Footer from '../../Components/Footer'
@@ -74,7 +74,7 @@ const LandingPage = () => {
                 <div className="absolute inset-0 h-screen bg-black/35"></div>
 
                 {/* Konten */}
-                <div className="relative z-10 flex flex-col text-white">
+                <div className="relative z-10 justify-center items-center h-full flex flex-col text-white">
 
                     <div className="px-4 md:px-15 mt-25  text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold text-center'>Welcome to
@@ -112,8 +112,8 @@ const LandingPage = () => {
             {/* About Start */}
             <section id='about' className='relative flex bg-last w-full rounded-b-3xl md:rounded-b-4xl z-40'>
                 <div className="container flex flex-col lg:flex-row py-8 md:py-10 mt-8 md:mt-10 px-4 md:px-30">
-                    <div className="kiri w-full lg:w-1/2 mb-8 lg:mb-0">
-                        <div className="ml-2 md:ml-10 bg-linear-to-b from-primary to-secondary w-auto md:w-60 py-2 rounded-full">
+                    <div className="kiri container w-full lg:w-1/2 mb-8 lg:mb-0">
+                        <div className="ml-20 md:ml-30 lg:ml-12 bg-linear-to-b from-primary to-secondary mx-auto px-5 md:w-80 w-50 py-2 rounded-full">
                             <h1 className='text-xl md:text-3xl font-bold text-center text-last'>Tentang Kami</h1>
                         </div>
                         <div className="mt-4 md:mt-6">
@@ -155,7 +155,7 @@ const LandingPage = () => {
                     <div className="programs mx-auto gap-6 md:gap-10 flex flex-col sm:flex-row w-full justify-center items-center">
                         {dataProgram.map((program, index) => (
                             <>
-                                <div className="program w-full sm:w-1/2 lg:w-1/4 text-last text-center sm:text-left px-2 md:px-0" key={index}>
+                                <div key={index} className="program w-full sm:w-1/2 lg:w-1/4 text-last text-center sm:text-left px-2 md:px-0">
                                     <h1 className='text-2xl md:text-3xl font-bold'>{String(index + 1).padStart(2, '0')}</h1>
                                     <p className='text-sm md:text-base lg:text-lg font-bold text-justify mt-2 leading-relaxed'>{program.description}</p>
                                 </div>
@@ -170,7 +170,7 @@ const LandingPage = () => {
                             <div className="ml-2 md:ml-10 bg-last w-auto md:w-100 py-2 rounded-full">
                                 <h1 className='text-base md:text-lg lg:text-xl font-bold text-center text-primary'>Apa yang kami tawarkan?</h1>
                             </div>
-                            <img src={gambarTawar} className="w-40 md:w-56 lg:w-64 mx-auto md:mx-0" alt="" />
+                            <img src={gambarTawar} className="w-40 md:w-56 lg:w-md lg:mx-0 mx-auto" alt="" />
                         </div>
                         <div className="kanan w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 lg:gap-10 mt-6 lg:mt-0 px-2 md:px-0">
                             <p className='text-sm md:text-base lg:text-lg text-justify text-last font-semibold leading-relaxed'>
@@ -202,8 +202,10 @@ const LandingPage = () => {
                         <p className='text-base md:text-lg text-justify text-primary font-semibold mt-3 md:mt-5'>
                             Kami menyediakan permainan edukatif berbasiskan lingkungan yang membuat siswa bisa secara langsung belajar dan mempraktikkan bagaimana cara melestarikan lingkungan.
                         </p>
-                        <Link to='/login'>
-                            <button className='w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:w-1/2 md:text-xl'>
+                        <Link to='/login' className='hidden md:block'>
+                            <button className='w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold
+                            text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5
+                            hover:bg-primary hover:text-white hover:shadow-xl lg:w-1/2 md:text-xl'>
                                 Daftar Sekarang
                             </button>
                         </Link>
@@ -211,14 +213,21 @@ const LandingPage = () => {
                     <div className="kanan w-full md:w-1/2">
                         <SliderProgram />
                     </div>
+                    <Link to='/login' className='block md:hidden'>
+                        <button className=' w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold
+                            text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5
+                            hover:bg-primary hover:text-white hover:shadow-xl lg:w-1/2 md:text-xl'>
+                            Daftar Sekarang
+                        </button>
+                    </Link>
                 </div>
                 <div className="container absolute z-40 left-0 bottom-0 w-full flex flex-row justify-start items-end overflow-hidden px-4">
                     {Array(10).fill().map((_, index) => (
-                        <img 
-                            src={awan} 
-                            alt="" 
-                            className='flex-shrink-0 w-20 sm:w-28 md:w-36 lg:w-44 -ml-6 sm:-ml-8 md:-ml-10 lg:-ml-12 object-contain' 
-                            key={index} 
+                        <img
+                            src={awan}
+                            alt=""
+                            className='shrink-0 w-20 sm:w-28 md:w-36 lg:w-44 -ml-6 sm:-ml-8 md:-ml-10 lg:-ml-12 object-contain'
+                            key={index}
                         />
                     ))}
                 </div>
@@ -230,12 +239,12 @@ const LandingPage = () => {
 
 
             {/* FAQ start */}
-            <section className='relative z-10 bg-last rounded-b-3xl md:rounded-b-4xl'>
+            <section className='relative z-10  bg-last rounded-b-3xl md:rounded-b-4xl'>
                 <div className="hiasan absolute -z-999 right-0 md:right-225 -top-20 md:-top-30 w-full">
                     <img src={hiasan} alt="asep" className='w-1/2 max-w-xs md:max-w-full ml-auto' />
                 </div>
-                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-20">
-                    <div className="kiri w-full md:w-1/2 flex flex-col justify-start items-center gap-6 md:gap-10">
+                <div className="container w-full px-10 lg:px-30 py-10 md:py-20 flex flex-col-reverse lg:flex-row justify-between items-center gap-10 md:gap-20">
+                    <div className="kiri w-full lg:w-1/2 flex flex-col justify-center items-center gap-6 lg:gap-10">
                         {dataFAQ.map((faq) => (
                             <FAQ
                                 key={faq.id}
@@ -245,8 +254,8 @@ const LandingPage = () => {
                             />
                         ))}
                     </div>
-                    <div className="kanan w-full md:w-1/2">
-                        <h1 className='text-4xl sm:text-5xl md:text-7xl leading-tight font-anton text-center md:text-end bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent '>Kenapa Memilih EDUCO ?</h1>
+                    <div className="kanan w-full lg:w-1/2">
+                        <h1 className='text-4xl sm:text-5xl lg:text-7xl leading-tight font-anton text-center md:text-end bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent '>Kenapa Memilih EDUCO ?</h1>
                         <p className='text-base md:text-lg text-justify text-primary font-semibold mt-3 md:mt-5'>
                             EDUCO lahir sebagai repons perkembangan zaman. Solusi edukatif di era globalisasi untuk generasi kedepan yang memiliki dampak berkelanjutan.
                         </p>
@@ -256,8 +265,8 @@ const LandingPage = () => {
             {/* FAQ end */}
 
             {/* Statistik Start */}
-            <section className='relative -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl '>
-                <div className="container w-full px-4 md:px-30 py-10 md:py-20 flex flex-col justify-between items-center gap-10">
+            <section className='relative pt-10 -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl '>
+                <div className="container w-full lg:px-30 py-10 md:py-20 flex flex-col justify-between items-center gap-10">
                     <div className="header mx-auto text-center">
                         <h1 className='text-3xl sm:text-4xl md:text-6xl leading-tight font-anton text-center text-last'>
                             Statistik Kasus <span>Pencemaran Alam Tahunan</span>

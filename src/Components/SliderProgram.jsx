@@ -15,27 +15,27 @@ const SliderProgram = () => {
   };
 
 
-    return (
-      <div className="w-full mx-auto px-2">
+  return (
+    <div className="w-full container mx-auto px-2">
       <Slider {...settings}>
-    <div className="px-2">
-      <div className="bg-[#F5C518] rounded-2xl min-h-48 md:min-h-64 lg:min-h-100 p-4 md:p-5 flex flex-col items-center gap-6 md:gap-10">
-        <h1 className="font-bold text-lg md:text-2xl text-white text-center">Ruang Kelas Pembelajaran Lingkungan</h1>
-        <div className="w-full max-w-xs md:w-80 mx-auto">
-            <img src="/Program_Vector_1.svg" alt="Program Vector 1" className="w-full h-auto" />
+        <div className="px-2 ">
+          <div className="bg-[#F5C518] rounded-2xl min-h-100   p-4 md:p-5 flex flex-col items-center gap-6 md:gap-10">
+            <h1 className="font-bold text-lg md:text-2xl text-white text-center">Ruang Kelas Pembelajaran Lingkungan</h1>
+            <div className="w-full max-w-xs lg:w-80 md:60 mx-auto">
+              <img src="/Program_Vector_1.svg" alt="Program Vector 1" className="w-full h-auto" />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div className="px-2">
-      <div className="bg-[#F5C518] rounded-2xl min-h-48 md:min-h-64 lg:min-h-100 p-4 md:p-5 flex flex-col items-center gap-6 md:gap-10">
-        <h1 className="font-bold text-lg md:text-2xl text-white text-center">Game Edukatif Bertema Lingkungan</h1>
-        <div className="w-full max-w-xs md:w-60 mx-auto">
-            <img src="/Program_vector_2.svg" alt="Program Vector 2" className="w-full h-auto" />
+        <div className="px-2">
+          <div className="bg-[#F5C518] rounded-2xl min-h-100  p-4 md:p-5 flex flex-col items-center gap-6 md:gap-10">
+            <h1 className="font-bold text-lg md:text-2xl text-white text-center">Game Edukatif Bertema Lingkungan</h1>
+            <div className="w-full max-w-xs lg:w-60 md:40 mx-auto">
+              <img src="/Program_vector_2.svg" alt="Program Vector 2" className="w-full h-auto" />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       </Slider>
-      </div>
+    </div>
   )
 }
 

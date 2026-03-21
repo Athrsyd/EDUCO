@@ -50,8 +50,8 @@ const Diagram = () => {
     }
 
     return (
-        <div className="w-full max-w-none mx-auto py-4">
-            <div className="relative w-full max-w-none h-44 sm:h-60 md:h-76 lg:h-105">
+        <div className="w-full max-w-none mx-auto py-4 ">
+            <div className="relative w-full max-w-none h-65 md:h-76 lg:h-105">
                 <Bar data={data} options={options} />
             </div>
         </div>

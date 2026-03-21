@@ -70,7 +70,7 @@ const Navbar = () => {
                             bg-last/30 backdrop-blur-md`}>
                 <div className="logo z-10000">
                     <a href="">
-                        <img width='120' src={Logo} alt="Logo" className='w-24 md:w-32' />
+                        <img width='120' src={Logo} alt="Logo" className='w-24' />
                     </a>
                 </div>
 
@@ -98,9 +98,9 @@ const Navbar = () => {
 
 
                 {/* Desktop Menu */}
-                <div className='hidden md:flex flex-row justify-between items-center gap-8 lg:gap-10'>
+                <div className='hidden md:flex flex-row justify-between text-sm items-center gap-8 lg:gap-10'>
                     <div className="Nav-Links">
-                        <ul className='flex text-secondary font-semibold flex-row justify-between items-center gap-6 lg:gap-10'>
+                        <ul className='flex text-secondary font-semibold flex-row justify-between items-center gap-3 lg:gap-10'>
                             <a href="#home" onClick={() => handleClick('home')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'home' ? 'text-last' : ''}`}>Home</li></a>
                             <a href="#about" onClick={() => handleClick('about')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'about' ? 'text-last' : ''}`}>Tentang Kami</li></a>
                             <a href="#program" onClick={() => handleClick('program')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'program' ? 'text-last' : ''}`}>Program</li></a>

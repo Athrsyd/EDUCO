@@ -1,0 +1,14 @@
+bagian landing yang blm responsif :
+* Tablet
+1. navabr   //
+2. herro    //
+3. tulisan about ud tengahin    //
+4. gambar di abaout2 tengahin   //
+5. benerin auto slider  //
+6. benerin FAQ  //
+7. kurangin px di statistik //
+8. benerin bagian program  //
+
+* HP :
+1. Benerin program  //
+2. Panjangin statistik  //
