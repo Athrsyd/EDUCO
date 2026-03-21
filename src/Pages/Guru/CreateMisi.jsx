@@ -67,30 +67,30 @@ export default function BuatMisi() {
         </div>
 
         {/* Logout */}
-        <div 
+        <div
         onClick={handleLogout}
         className="opacity-60 hover:opacity-100 cursor-pointer"
         >
-          
+
           {dataIcon({ size: 24, color: "#9E9E9E" }).logout}
         </div>
 
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 px-10 py-6 overflow-y-auto">
+      <div className="flex-1 px-4 sm:px-6 md:px-10 py-6 overflow-y-auto">
 
         {/* LOGO */}
         <div className="flex items-center gap-3 mb-6">
           <img
             src="/src/assets/eduko-removebg-preview.png"
             alt="Educo"
-            className="h-8"
+            className="h-8 sm:h-10"
           />
         </div>
 
         {/* KEMBALI BUTTON */}
-        <button onClick={handleBack} className="flex items-center gap-2 bg-[#4CAF50] text-white px-5 py-2 rounded-full mb-8 text-sm font-semibold">
+        <button onClick={handleBack} className="flex items-center gap-2 bg-[#4CAF50] text-white px-4 sm:px-5 py-2 rounded-full mb-6 text-sm font-semibold">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -108,10 +108,10 @@ export default function BuatMisi() {
         </button>
 
         {/* FORM ROW */}
-        <div className="flex gap-5 items-start">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
 
           {/* ===== LEFT CARD ===== */}
-          <div className="flex-1 bg-[#F4A900] rounded-2xl p-5 flex flex-col gap-4 min-h-[300px]">
+          <div className="flex-1 bg-[#F4A900] rounded-2xl p-4 sm:p-5 flex flex-col gap-4 min-h-[300px]">
 
             {/* Judul Misi Input */}
             <input
@@ -119,7 +119,7 @@ export default function BuatMisi() {
               placeholder="Masukkan Judul Misi"
               value={judulMisi}
               onChange={(e) => setJudulMisi(e.target.value)}
-              className="w-full bg-transparent text-white placeholder-white text-[15px] font-medium outline-none border-none"
+              className="w-full bg-transparent text-white placeholder-white/70 text-sm sm:text-base font-medium outline-none border-none"
             />
 
             {/* Divider line */}
@@ -134,31 +134,31 @@ export default function BuatMisi() {
                 value={petunjuk}
                 onChange={(e) => setPetunjuk(e.target.value)}
                 rows={4}
-                className="w-full bg-transparent text-white placeholder-white text-[15px] font-medium outline-none border-none resize-none"
+                className="w-full bg-transparent text-white placeholder-white/70 text-sm sm:text-base font-medium outline-none border-none resize-none"
               />
 
-              {/* Attachment Cards (shown when there are attachments) */}
+              {/* Attachment Cards */}
               {lampiran.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-[#8B8C1A] rounded-xl px-4 py-3 flex items-center justify-between gap-3"
+                  className="bg-[#8B8C1A] rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3"
                 >
-                  <div className="flex-1">
-                    <p className="text-white text-[14px] font-semibold underline cursor-pointer leading-tight">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white text-xs sm:text-sm font-semibold underline cursor-pointer leading-tight truncate">
                       {item.name}
                     </p>
-                    <p className="text-white/70 text-[12px] leading-tight mt-0.5">
+                    <p className="text-white/70 text-[11px] sm:text-xs leading-tight mt-0.5">
                       {item.subtitle}
                     </p>
                   </div>
                   <button
                     onClick={() => handleRemoveLampiran(i)}
-                    className="text-white hover:text-red-300 transition-colors"
+                    className="text-white hover:text-red-300 transition-colors flex-shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -174,25 +174,25 @@ export default function BuatMisi() {
 
               {/* Add Link Form */}
               {showAddLink && (
-                <div className="bg-[#8B8C1A] rounded-xl px-4 py-3 flex flex-col gap-2">
+                <div className="bg-[#8B8C1A] rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 flex flex-col gap-1.5 sm:gap-2">
                   <input
                     type="text"
                     placeholder="Nama Link"
                     value={newLinkName}
                     onChange={(e) => setNewLinkName(e.target.value)}
-                    className="bg-transparent text-white placeholder-white/70 text-[13px] outline-none"
+                    className="bg-transparent text-white placeholder-white/70 text-xs sm:text-sm outline-none"
                   />
                   <input
                     type="url"
                     placeholder="URL Website (www.example.com)"
                     value={newLinkUrl}
                     onChange={(e) => setNewLinkUrl(e.target.value)}
-                    className="bg-transparent text-white placeholder-white/70 text-[13px] outline-none"
+                    className="bg-transparent text-white placeholder-white/70 text-xs sm:text-sm outline-none"
                   />
                   <div className="flex gap-2 mt-1">
                     <button
                       onClick={handleAddLink}
-                      className="text-white text-[12px] font-semibold hover:underline"
+                      className="text-white text-xs font-semibold hover:underline"
                     >
                       Simpan
                     </button>
@@ -202,7 +202,7 @@ export default function BuatMisi() {
                         setNewLinkName("");
                         setNewLinkUrl("");
                       }}
-                      className="text-white/70 text-[12px] hover:underline"
+                      className="text-white/70 text-xs hover:underline"
                     >
                       Batal
                     </button>
@@ -213,18 +213,18 @@ export default function BuatMisi() {
             </div>
 
             {/* Lampiran Section */}
-            <div className="mt-auto">
-              <p className="text-white text-[15px] font-semibold mb-3">
+            <div className="mt-auto pt-2">
+              <p className="text-white text-sm sm:text-base font-semibold mb-3">
                 lampiran
               </p>
-              <div className="flex items-center gap-8">
+              <div className="flex items-center gap-6 sm:gap-8">
 
                 {/* Upload File */}
                 <label className="flex flex-col items-center gap-1 cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="28"
+                    width="24"
+                    height="24"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="white"
@@ -236,7 +236,7 @@ export default function BuatMisi() {
                     <polyline points="17 8 12 3 7 8" />
                     <line x1="12" y1="3" x2="12" y2="15" />
                   </svg>
-                  <span className="text-white text-[11px]">Upload file</span>
+                  <span className="text-white text-[10px] sm:text-xs">Upload file</span>
                   <input
                     type="file"
                     className="hidden"
@@ -251,8 +251,8 @@ export default function BuatMisi() {
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="28"
+                    width="24"
+                    height="24"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="white"
@@ -263,7 +263,7 @@ export default function BuatMisi() {
                     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                     <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
                   </svg>
-                  <span className="text-white text-[11px]">Link</span>
+                  <span className="text-white text-[10px] sm:text-xs">Link</span>
                 </button>
 
               </div>
@@ -271,10 +271,10 @@ export default function BuatMisi() {
           </div>
 
           {/* ===== RIGHT CARD ===== */}
-          <div className="w-[200px] bg-[#F4A900] rounded-2xl p-5 flex flex-col items-center gap-6">
+          <div className="w-full lg:w-[220px] bg-[#F4A900] rounded-2xl p-4 sm:p-5 flex flex-col items-center gap-4 sm:gap-6">
 
             {/* Label */}
-            <p className="text-white text-[14px] font-semibold self-start w-full">
+            <p className="text-white text-sm font-semibold self-start w-full">
               Masukan target :
             </p>
 
@@ -284,7 +284,7 @@ export default function BuatMisi() {
               {/* Prev */}
               <button
                 onClick={handleTargetPrev}
-                className="text-white hover:opacity-60 transition-opacity"
+                className="text-white hover:opacity-60 transition-opacity p-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -302,14 +302,14 @@ export default function BuatMisi() {
               </button>
 
               {/* Number */}
-              <span className="text-white text-[34px] font-bold leading-none">
+              <span className="text-white text-2xl sm:text-3xl md:text-[34px] font-bold leading-none min-w-[50px] text-center">
                 {String(target).padStart(2, "0")}
               </span>
 
               {/* Next */}
               <button
                 onClick={handleTargetNext}
-                className="text-white hover:opacity-60 transition-opacity"
+                className="text-white hover:opacity-60 transition-opacity p-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@ export default function BuatMisi() {
             </div>
 
             {/* Buat Misi Button */}
-            <button className="bg-[#4CAF50] text-white w-full py-2 rounded-full font-semibold text-[15px] hover:bg-[#43A047] transition-colors text-center">
+            <button className="bg-[#4CAF50] text-white w-full py-2 sm:py-2.5 rounded-full font-semibold text-sm sm:text-base hover:bg-[#43A047] transition-colors text-center shadow-md">
               Buat Misi
             </button>
 
@@ -339,4 +339,3 @@ export default function BuatMisi() {
     </div>
   );
 }
-

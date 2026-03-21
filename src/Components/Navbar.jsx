@@ -76,12 +76,16 @@ const Navbar = () => {
 
                 {/* Hamburger Menu Button - Mobile */}
                 <div className="buttons flex flex-row justify-between items-center gap-3 md:hidden">
-                    {role ? (<Link to={`/${role}/dashboard`} onClick={closeMenu}>
-                        <button className='w-full px-3 text-sm py-1 bg-primary font-semibold text-white rounded-full
+                    {role ? (
+                        <Link to={`/${role}/dashboard`} onClick={closeMenu}>
+                            <button className='w-full px-3 text-sm py-1 bg-primary font-semibold text-white rounded-full
                     hover:bg-secondary transition-colors duration-300 ease-in-out'>Dashboard</button>
-                    </Link>) : (
-                        <>
-                        </>
+                        </Link>
+                    ) : (
+                        <Link to="/login">
+                            <button className='w-full px-3 text-sm py-1 bg-primary font-semibold text-white rounded-full
+                    hover:bg-secondary transition-colors duration-300 ease-in-out'>Login</button>
+                        </Link>
                     )}
                     <button
                         className='md:hidden z-10000 text-secondary p-2 rounded-full hover:bg-secondary/20 hover:text-primary transition-colors duration-300 ease-in-out'
@@ -149,10 +153,16 @@ const Navbar = () => {
                             </Link>
                         ) : (
                             <>
-
+                                <Link to="/login" onClick={closeMenu}>
+                                    <button className='w-full px-5 py-3 bg-last font-semibold text-primary rounded-full
+                                    hover:bg-secondary hover:text-last transition-colors duration-300 ease-in-out'>Login</button>
+                                </Link>
+                                <Link to="/register" onClick={closeMenu}>
+                                    <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full
+                                    hover:bg-secondary transition-colors duration-300 ease-in-out'>Register</button>
+                                </Link>
                             </>
                         )}
-
                     </div>
                 </div>
             </div>

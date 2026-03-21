@@ -1,7 +1,8 @@
 import React from "react";
 import dataIcon from "../../assets/Data/icon";
 import daftarSiswa from "../../assets/Data/Mode Guru/dataDaftarSiswa";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 export default function DaftarMurid() {
 
   const navigate = useNavigate();
@@ -40,33 +41,33 @@ export default function DaftarMurid() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-10">
+      <div className="flex-1 p-4 sm:p-6 md:p-10">
 
         {/* Logo */}
-        <h1 className="text-3xl font-bold text-green-700 mb-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-4 sm:mb-6">
           EDUCO
         </h1>
 
         {/* Card */}
-        <div className="bg-[#e7e3dd] rounded-lg p-10">
+        <div className="bg-[#e7e3dd] rounded-lg p-4 sm:p-6 md:p-10">
 
-          <h2 className="text-4xl font-bold text-yellow-500 mb-10">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-yellow-500 mb-6 sm:mb-8 md:mb-10">
             Daftar Murid
           </h2>
 
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {daftarSiswa.map((siswa) => (
               <div
                 key={siswa.id}
-                className="flex justify-between items-center border-b border-green-600 pb-2"
+                className="flex justify-between items-center border-b border-green-600 pb-2 sm:pb-3"
               >
 
-                <p className="text-green-700 font-semibold text-lg">
+                <p className="text-green-700 font-semibold text-sm sm:text-base md:text-lg truncate flex-1">
                   {siswa.nama}
                 </p>
 
                 {/* Icon 3 titik */}
-                <div className="cursor-pointer">
+                <div className="cursor-pointer flex-shrink-0 ml-2">
                   {icon.more}
                 </div>
 

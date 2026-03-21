@@ -1,22 +1,22 @@
 // Dashboard.jsx
 import { useState, useEffect } from "react";
 import dataIcon from "../../assets/Data/icon";
-import { data } from "react-router-dom";
 import { Link, useNavigate } from 'react-router-dom'
 import Sidebar from "../../Components/Sidebar";
 import Progress from "../../Components/Progress";
+import PageTransition from "../../Components/PageTransition";
 import dataListKelas from "../../assets/Data/Mode Siswa/dataListKelas";
 import dataListMisi from "../../assets/Data/Mode Siswa/dataListMisi";
 
 
-export default function Dashboard({ username = "Budi", onBack }) {
+export default function Dashboard({ username = "Budi" }) {
   const [progress, setProgress] = useState(0);
   const [mounted, setMounted] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    navigate('/');
     localStorage.removeItem('userRole');
+    navigate('/');
   };
 
   useEffect(() => {
@@ -81,43 +81,28 @@ export default function Dashboard({ username = "Budi", onBack }) {
         }
       `}</style>
 
-      <div className="min-h-screen bg-[#EDEAE4] flex flex-col" style={{ fontFamily: "'Poppins', sans-serif" }}>
-        {/* ========== TOP NAVBAR ========== */}
+      <PageTransition>
+      <div className="min-h-screen bg-[#EDEAE4] flex flex-col pt-16" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        
+        {/* ========== TOP NAVBAR (FIXED) ========== */}
         <nav
-          className="anim-fadein anim-delay-0 w-full flex items-center justify-between px-6"
-          style={{ height: "64px", backgroundColor: "#EDEAE4" }}
+          className="fixed top-0 left-0 right-0 h-16 w-full bg-[#EDEAE4] px-4 md:px-6 flex items-center justify-between z-50 shadow-sm"
         >
-          {/* Left side */}
+          {/* Left side - HOME ICON */}
           <div className="flex items-center">
-            {/* Back button - hanya muncul jika ada onBack */}
-            {onBack && (
-              <button
-                onClick={onBack}
-                className="mr-4 p-2 rounded-full hover:bg-black/5 transition-colors"
-                title="Kembali"
-              >
-                <div className="rotate-180">
-                  {dataIcon({ size: 20, color: "#48A111" }).arrowRight}
-                </div>
-              </button>
-            )}
-            <div className="mr-4 cursor-pointer">
-              {dataIcon({ size: 20, color: "#48A111" }).menu}
-            </div>
-            <div className="flex items-center">
-              {/* logo */}
-            </div>
+            <button
+              onClick={() => navigate('/')}
+              className="mr-2 md:mr-4 p-2 rounded-full hover:bg-black/5 transition-colors touch-target flex items-center justify-center"
+              title="Home"
+            >
+              {dataIcon({ size: 22, color: "#48A111" }).graduationCap}
+            </button>
           </div>
 
-          {/* Right side */}
-          <div className="flex items-center gap-2">
-            {dataIcon({ size: 20, color: "#48A111" }).treePine}
-            <span
-              className="font-bold text-lg"
-              style={{ color: "#1A1A1A" }}
-            >
-              99
-            </span>
+          {/* Right side - Tree counter */}
+          <div className="flex items-center gap-1 md:gap-2">
+            <span>{dataIcon({ size: 18, color: "#48A111" }).treePine}</span>
+            <span className="text-lg md:text-2xl font-bold text-neutral-600">99</span>
           </div>
         </nav>
 
@@ -136,19 +121,19 @@ export default function Dashboard({ username = "Budi", onBack }) {
           />
 
           {/* ========== MAIN CONTENT ========== */}
-          <main className="flex-1 px-4 md:px-8 py-6 pb-28 md:pb-6" style={{ overflowX: "hidden" }}>
+          <main className="flex-1 px-4 md:px-8 py-6 pb-24 md:pb-6" style={{ overflowX: "hidden" }}>
             {/* SECTION 1: Welcome Header */}
             <div
               className={`text-center mb-6 ${mounted ? "anim-fadein anim-delay-150" : "opacity-0"}`}
             >
               <h1
-                className="font-bold text-xl md:text-3xl"
+                className="font-bold text-lg md:text-3xl px-2"
                 style={{ color: "#48A111" }}
               >
                 Selamat datang, {username}.
               </h1>
               <h2
-                className="font-bold text-xl md:text-3xl"
+                className="font-bold text-sm md:text-3xl px-2 mt-1"
                 style={{ color: "#25671E" }}
               >
                 Hari ini anda memiliki 3 misi menjaga lingkungan.
@@ -158,7 +143,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
             {/* SECTION 2: Progress Bar */}
             <div
-              className={`flex w-full px-10 items-center gap-4 mt-2 mb-8 ${mounted ? "anim-fadein anim-delay-300" : "opacity-0"}`}
+              className={`flex w-full px-4 md:px-10 items-center gap-2 md:gap-4 mt-2 mb-8 ${mounted ? "anim-fadein anim-delay-300" : "opacity-0"}`}
             >
               <Progress value={progress} max={100} />
             </div>
@@ -167,15 +152,15 @@ export default function Dashboard({ username = "Budi", onBack }) {
             <div
               className={`${mounted ? "anim-fadein anim-delay-450" : "opacity-0"}`}
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-4 px-2">
                 <h3
-                  className="font-bold text-xl"
+                  className="font-bold text-lg md:text-xl"
                   style={{ color: "#F2B50B" }}
                 >
                   Kelas anda
                 </h3>
                 <span
-                  className="text-2xl font-light cursor-pointer hover:scale-110 transition-transform duration-200 select-none"
+                  className="text-xl md:text-2xl font-light cursor-pointer hover:scale-110 transition-transform duration-200 select-none touch-target"
                   style={{ color: "#F2B50B" }}
                 >
                   +
@@ -187,7 +172,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
                 {classes.map((cls, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer touch-target"
                   >
                     <div
                       className="h-32"
@@ -212,20 +197,20 @@ export default function Dashboard({ username = "Budi", onBack }) {
               </div>
 
               {/* Mobile: horizontal scroll */}
-              <div className="flex md:hidden overflow-x-auto gap-4 hide-scrollbar">
+              <div className="flex md:hidden overflow-x-auto gap-4 hide-scrollbar px-2">
                 {classes.map((cls, i) => (
                   <div
                     key={i}
-                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer shrink-0"
-                    style={{ width: "192px" }}
+                    className="rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer shrink-0 touch-target"
+                    style={{ width: "160px" }}
                   >
                     <div
-                      className="h-32"
+                      className="h-24"
                       style={{ backgroundColor: "#D9D9D9" }}
                     />
                     <div className="p-3" style={{ backgroundColor: "#F2B50B" }}>
                       <p
-                        className="font-semibold text-sm"
+                        className="font-semibold text-xs md:text-sm"
                         style={{ color: "#F7F0F0" }}
                       >
                         {cls.name}
@@ -247,7 +232,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
               className={`mt-6 md:mt-8 ${mounted ? "anim-fadein anim-delay-600" : "opacity-0"}`}
             >
               <h3
-                className="font-bold text-2xl md:text-4xl mb-4 md:mb-8"
+                className="font-bold text-xl md:text-4xl mb-4 md:mb-8 px-2"
                 style={{ color: "#1A1A1A" }}
               >
                 Misi anda
@@ -260,19 +245,19 @@ export default function Dashboard({ username = "Budi", onBack }) {
                     return (
                       <div
                         key={i}
-                        className="flex items-center rounded-3xl overflow-hidden"
-                        style={{ backgroundColor: "rgba(72,161,17,0.35)", minHeight: "64px" }}
+                        className="flex items-center rounded-3xl overflow-hidden touch-target"
+                        style={{ backgroundColor: "rgba(72,161,17,0.35)", minHeight: "56px" }}
                       >
                         {/* Number */}
                         <div
                           className="flex items-center justify-center flex-shrink-0"
                           style={{
-                            width: "56px",
-                            minWidth: "56px",
+                            width: "44px",
+                            minWidth: "44px",
                           }}
                         >
                           <span
-                            className="font-extrabold text-2xl"
+                            className="font-extrabold text-lg md:text-2xl"
                             style={{
                               color: "rgba(247,240,240,0.5)",
                             }}
@@ -286,15 +271,15 @@ export default function Dashboard({ username = "Budi", onBack }) {
                           className="shrink-0"
                           style={{
                             width: "2px",
-                            height: "40px",
+                            height: "28px",
                             backgroundColor: "rgba(255,255,255,0.25)",
                           }}
                         />
 
                         {/* Text block */}
-                        <div className="flex-1 min-w-0 px-3 py-2">
+                        <div className="flex-1 min-w-0 px-2 py-2">
                           <p
-                            className="font-bold text-sm leading-snug"
+                            className="font-bold text-xs md:text-sm leading-snug"
                             style={{ color: "rgba(247,240,240,0.5)" }}
                           >
                             {mission.title}
@@ -309,15 +294,15 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
                         {/* Progress */}
                         <span
-                          className="font-extrabold text-sm shrink-0 mr-2"
-                          style={{ color: "rgba(247,240,240,0.5)", minWidth: "36px", textAlign: "right" }}
+                          className="font-extrabold text-xs md:text-sm shrink-0 mr-2"
+                          style={{ color: "rgba(247,240,240,0.5)", minWidth: "32px", textAlign: "right" }}
                         >
                           {mission.progress}
                         </span>
 
                         {/* Check icon */}
-                        <div className="shrink-0 mr-3" style={{ color: "rgba(247,240,240,0.5)" }}>
-                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <div className="shrink-0 mr-2 md:mr-3" style={{ color: "rgba(247,240,240,0.5)" }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         </div>
@@ -329,19 +314,19 @@ export default function Dashboard({ username = "Budi", onBack }) {
                   return (
                     <div
                       key={i}
-                      className="flex items-center rounded-3xl overflow-hidden hover:-translate-y-1 hover:brightness-110 transition-all duration-200 cursor-pointer"
-                      style={{ backgroundColor: "#25671E", minHeight: "64px" }}
+                      className="flex items-center rounded-3xl overflow-hidden hover:-translate-y-1 hover:brightness-110 transition-all duration-200 cursor-pointer touch-target"
+                      style={{ backgroundColor: "#25671E", minHeight: "56px" }}
                     >
                       {/* Number */}
                       <div
                         className="flex items-center justify-center flex-shrink-0"
                         style={{
-                          width: "56px",
-                          minWidth: "56px",
+                          width: "44px",
+                          minWidth: "44px",
                         }}
                       >
                         <span
-                          className="font-extrabold text-2xl"
+                          className="font-extrabold text-lg md:text-2xl"
                           style={{
                             color: "#F7F0F0",
                           }}
@@ -355,15 +340,15 @@ export default function Dashboard({ username = "Budi", onBack }) {
                         className="flex-shrink-0"
                         style={{
                           width: "2px",
-                          height: "40px",
+                          height: "28px",
                           backgroundColor: "rgba(255,255,255,0.25)",
                         }}
                       />
 
                       {/* Text block */}
-                      <div className="flex-1 min-w-0 px-3 py-2">
+                      <div className="flex-1 min-w-0 px-2 py-2">
                         <p
-                          className="font-bold text-sm leading-snug"
+                          className="font-bold text-xs md:text-sm leading-snug"
                           style={{ color: "#F7F0F0" }}
                         >
                           {mission.title}
@@ -378,20 +363,20 @@ export default function Dashboard({ username = "Budi", onBack }) {
 
                       {/* Progress */}
                       <span
-                        className="font-extrabold text-sm flex-shrink-0 mr-2"
-                        style={{ color: "#F7F0F0", minWidth: "36px", textAlign: "right" }}
+                        className="font-extrabold text-xs md:text-sm flex-shrink-0 mr-2"
+                        style={{ color: "#F7F0F0", minWidth: "32px", textAlign: "right" }}
                       >
                         {mission.progress}
                       </span>
 
                       {/* Arrow button */}
                       <div
-                        className="flex items-center justify-center flex-shrink-0 mr-3 transition-colors duration-200"
+                        className="flex items-center justify-center flex-shrink-0 mr-2 md:mr-3 transition-colors duration-200"
                         style={{
                           backgroundColor: "#48A111",
-                          width: "40px",
-                          height: "40px",
-                          minWidth: "40px",
+                          width: "32px",
+                          height: "32px",
+                          minWidth: "32px",
                           borderRadius: "50%",
                         }}
                         onMouseEnter={(e) =>
@@ -401,7 +386,7 @@ export default function Dashboard({ username = "Budi", onBack }) {
                           (e.currentTarget.style.backgroundColor = "#48A111")
                         }
                       >
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F0F0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F7F0F0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                           <polyline points="9 18 15 12 9 6" />
                         </svg>
                       </div>
@@ -413,41 +398,52 @@ export default function Dashboard({ username = "Budi", onBack }) {
           </main>
         </div>
 
-        {/* ========== MOBILE BOTTOM NAV ========== */}
+        {/* ========== MOBILE BOTTOM NAV (FIXED) ========== */}
         <nav
-          className="md:hidden fixed bottom-0 left-0 right-0 flex items-center justify-around py-3"
+          className="md:hidden fixed bottom-0 left-0 right-0 flex items-center justify-around py-2 safe-area-pb"
           style={{
             backgroundColor: "#EDEAE4",
             borderTop: "1px solid rgba(0,0,0,0.08)",
             zIndex: 50,
           }}
         >
-          {/* Active: Graduation Cap */}
+          {/* Active: Graduation Cap (Dashboard) */}
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer"
+            className="w-11 h-11 rounded-xl flex items-center justify-center cursor-pointer touch-target"
             style={{ backgroundColor: "#48A111" }}
+            onClick={() => navigate('/siswa/dashboard')}
           >
             <div style={{ color: "#F7F0F0" }}>
-              {dataIcon({ size: 20, color: "#F7F0F0" }).graduationCap}
+              {dataIcon({ size: 22, color: "#F7F0F0" }).graduationCap}
             </div>
           </div>
 
-          {/* ListChecks */}
-          <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            {dataIcon({ size: 20, color: "#48A111" }).list}
+          {/* ListChecks (Misi) */}
+          <div
+            className="w-11 h-11 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150 touch-target"
+            onClick={() => navigate('/siswa/misi')}
+          >
+            {dataIcon({ size: 22, color: "#48A111" }).list}
           </div>
 
-          {/* Gamepad2 */}
-          <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            {dataIcon({ size: 20, color: "#48A111" }).gamepad}
+          {/* Gamepad2 (Game) */}
+          <div
+            className="w-11 h-11 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150 touch-target"
+            onClick={() => navigate('/siswa/game-menu')}
+          >
+            {dataIcon({ size: 22, color: "#48A111" }).gamepad}
           </div>
 
           {/* LogOut */}
-          <div className="w-10 h-10 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150">
-            {dataIcon({ size: 20, color: "#48A111" }).logOut}
+          <div
+            className="w-11 h-11 flex items-center justify-center cursor-pointer opacity-60 hover:opacity-100 transition-all duration-150 touch-target"
+            onClick={handleLogout}
+          >
+            {dataIcon({ size: 22, color: "#48A111" }).logOut}
           </div>
         </nav>
       </div>
+      </PageTransition>
     </>
   );
 }

@@ -111,83 +111,76 @@ const LandingPage = () => {
 
             {/* About Start */}
             <section id='about' className='relative flex bg-last w-full rounded-b-3xl md:rounded-b-4xl z-40'>
-                <div className="container flex flex-col md:flex-row py-8 md:py-10 mt-8 md:mt-10 px-4 md:px-30 ">
-                    <div className="kiri w-full md:w-1/2">
-
+                <div className="container flex flex-col lg:flex-row py-8 md:py-10 mt-8 md:mt-10 px-4 md:px-30">
+                    <div className="kiri w-full lg:w-1/2 mb-8 lg:mb-0">
                         <div className="ml-2 md:ml-10 bg-linear-to-b from-primary to-secondary w-auto md:w-60 py-2 rounded-full">
-
-                            <h1 className='text-xl md:text-3xl font-bold text-center text-last
-                        '
-                            >Tentang Kami</h1>
+                            <h1 className='text-xl md:text-3xl font-bold text-center text-last'>Tentang Kami</h1>
                         </div>
-                        <div>
-
-                            <img src={Pohon} alt="pohon" className="w-full max-w-md md:max-w-full md:w-265 relative mx-auto" />
+                        <div className="mt-4 md:mt-6">
+                            <img src={Pohon} alt="pohon" className="w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto" />
                         </div>
                     </div>
-                    <div className="kanan w-full md:w-1/2 mt-6 md:mt-0">
-                        <div className="w-full mx-auto">
-                            <p className=' text-sm md:text-md text-justify font-semibold text-secondary'>
+                    <div className="kanan w-full lg:w-1/2">
+                        <div className="w-full">
+                            <p className='text-sm md:text-base text-justify font-semibold text-secondary leading-relaxed'>
                                 EDUCO hadir sebagai solusi atas meningkatnya persoalan lingkungan, sekaligus menjadi sarana untuk meningkatkan efektivitas dan kualitas pendidikan lingkungan di sekolah. <br /><br />
                                 Melalui berbagai program dan fitur yang inovatif, kami berupaya untuk mendukung guru dan siswa dalam mengakses materi pembelajaran secara mudah, fleksibel, dan efektif. <br /><br />
                                 Kami percaya bahwa teknologi dapat menjadi jembatan untuk menciptakan pengalaman belajar yang lebih baik bagi generasi masa depan.</p>
 
                             <div className="h-0.75 bg-accent w-full mx-auto mt-5 rounded-full"></div>
                         </div>
-                        <div className="bentos w-full mx-auto flex flex-col md:flex-row justify-center gap-10 md:gap-20 mt-8 md:mt-10">
-                            <div className="bentos1 w-full md:w-4/10 text-center">
-                                <h2 className='text-base md:text-lg font-bold text-secondary'>Telah di percaya oleh</h2>
-                                <div className='w-full bg-accent/80 p-5 text-center rounded-3xl mt-5'>
-                                    <h1 className="text-primary text-3xl md:text-4xl font-bold "><Counter target={230} suffix="+" /></h1>
-                                    <p className='text-last font-semibold text-lg md:text-xl mt-3'>Sekolah</p>
+                        <div className="bentos w-full flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-6 md:mt-8">
+                            <div className="bentos1 w-full sm:w-1/2 text-center">
+                                <h2 className='text-sm md:text-base font-bold text-secondary'>Telah di percaya oleh</h2>
+                                <div className='w-full bg-accent/80 p-4 text-center rounded-3xl mt-3'>
+                                    <h1 className="text-primary text-3xl md:text-4xl font-bold"><Counter target={230} suffix="+" /></h1>
+                                    <p className='text-last font-semibold text-base md:text-lg mt-2'>Sekolah</p>
                                 </div>
                             </div>
-                            <div className="bentos2 w-full md:w-4/10 text-center ">
-                                <h2 className='text-base md:text-lg font-bold text-secondary'>Di gunakan oleh</h2>
-                                <div className='w-full bg-accent/80 p-5 text-center rounded-3xl mt-5'>
-                                    <h1 className="text-primary text-3xl md:text-4xl font-bold "><Counter target={1000} suffix="+" /></h1>
-                                    <p className='text-last font-semibold text-lg md:text-xl mt-3'>Siswa</p>
+                            <div className="bentos2 w-full sm:w-1/2 text-center">
+                                <h2 className='text-sm md:text-base font-bold text-secondary'>Di gunakan oleh</h2>
+                                <div className='w-full bg-accent/80 p-4 text-center rounded-3xl mt-3'>
+                                    <h1 className="text-primary text-3xl md:text-4xl font-bold"><Counter target={1000} suffix="+" /></h1>
+                                    <p className='text-last font-semibold text-base md:text-lg mt-2'>Siswa</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/* <div className="h-0.75 bg-secondary/60 w-200 mx-auto mt-10 rounded-full"></div> */}
                 </div>
-
             </section>
 
             {/* About 2 start */}
-            <section className='relative  z-30 -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl '>
-                <div className="container px-4 md:px-30 py-10 md:py-20 ">
-                    <div className="programs mx-auto gap-6 md:gap-10 flex flex-col md:flex-row w-full justify-center items-center">
+            <section className='relative z-30 -mt-8 md:-mt-10 bg-secondary w-full rounded-b-3xl md:rounded-b-4xl'>
+                <div className="container px-4 md:px-30 py-10 md:py-20">
+                    <div className="programs mx-auto gap-6 md:gap-10 flex flex-col sm:flex-row w-full justify-center items-center">
                         {dataProgram.map((program, index) => (
                             <>
-                                <div className="program w-full md:w-1/4 text-last text-center md:text-left" key={index}>
-                                    <h1 className='text-2xl md:text-3xl font-bold '>{String(index + 1).padStart(2, '0')}</h1>
-                                    <p className='text-base md:text-lg font-bold text-justify mt-2'>{program.description}</p>
+                                <div className="program w-full sm:w-1/2 lg:w-1/4 text-last text-center sm:text-left px-2 md:px-0" key={index}>
+                                    <h1 className='text-2xl md:text-3xl font-bold'>{String(index + 1).padStart(2, '0')}</h1>
+                                    <p className='text-sm md:text-base lg:text-lg font-bold text-justify mt-2 leading-relaxed'>{program.description}</p>
                                 </div>
                                 {index !== dataProgram.length - 1 && (
-                                    <div className="h-20 md:h-40 bg-last w-0.75 mx-auto my-4 md:my-10 rounded-full"></div>
+                                    <div className="h-16 sm:h-32 lg:h-40 bg-last w-0.75 mx-auto my-4 md:my-10 rounded-full"></div>
                                 )}
                             </>
                         ))}
                     </div>
-                    <div className="tawar mt-8 md:mt-10 flex flex-col md:flex-row justify-center items-center">
-                        <div className="kiri flex flex-col gap-6 md:gap-10 w-full md:w-1/2">
-
+                    <div className="tawar mt-8 md:mt-10 flex flex-col lg:flex-row justify-center items-center">
+                        <div className="kiri flex flex-col gap-4 md:gap-6 lg:gap-10 w-full lg:w-1/2 px-2 md:px-0">
                             <div className="ml-2 md:ml-10 bg-last w-auto md:w-100 py-2 rounded-full">
-                                <h1 className='text-lg md:text-xl font-bold text-center text-primary'>Apa yang kami tawarkan?</h1>
+                                <h1 className='text-base md:text-lg lg:text-xl font-bold text-center text-primary'>Apa yang kami tawarkan?</h1>
                             </div>
-                            <img src={gambarTawar} className="w-48 md:w-120 mx-auto md:mx-0" alt="" />
+                            <img src={gambarTawar} className="w-40 md:w-56 lg:w-64 mx-auto md:mx-0" alt="" />
                         </div>
-                        <div className="kanan w-full md:w-1/2 flex flex-col gap-6 md:gap-10 mt-6 md:mt-0">
-                            <p className=' text-sm md:text-lg text-justify text-last font-semibold'>
+                        <div className="kanan w-full lg:w-1/2 flex flex-col gap-4 md:gap-6 lg:gap-10 mt-6 lg:mt-0 px-2 md:px-0">
+                            <p className='text-sm md:text-base lg:text-lg text-justify text-last font-semibold leading-relaxed'>
                                 Program ini dirancang untuk membantu siswa memahami pentingnya menjaga lingkungan melalui pembelajaran yang interaktif dan menyenangkan. <br /><br />
                                 Dengan berbagai aktivitas seperti misi lingkungan, praktik langsung, dan permainan edukatif, siswa dapat belajar sekaligus berkontribusi dalam menjaga alam sekitar. <br /><br />
                                 Kami percaya bahwa pendidikan lingkungan sejak dini dapat membentuk generasi yang lebih peduli dan bertanggung jawab terhadap bumi</p>
                             <Link to='/login'>
-                                <button className='mx-auto w-full rounded-full bg-accent px-5 py-3 text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl md:mx-0 md:w-2/5 md:text-xl'>
-                                    Mulai Sekarang</button>
+                                <button className='mx-auto w-full lg:w-2/5 rounded-full bg-accent px-4 md:px-5 py-2.5 md:py-3 text-sm md:text-base lg:text-lg font-semibold text-last shadow-md transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:bg-primary hover:text-white hover:shadow-xl'>
+                                    Mulai Sekarang
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -197,7 +190,7 @@ const LandingPage = () => {
 
 
             {/* Program Start*/}
-            <section id='program' className='relative -mt-8 md:-mt-10 pt-8 md:pt-10 z-20 px-4 md:px-30 bg-last overflow-visible'>
+            <section id='program' className='relative -mt-8 md:-mt-10 pt-8 md:pt-10 z-20 px-4 md:px-30 bg-last overflow-visible pb-32 md:pb-40'>
                 <div className="hiasan absolute -z-999 left-0 md:left-220 -top-20 md:-top-30 w-full">
                     <img src={hiasan} alt="asep" className='w-1/2 max-w-xs md:max-w-full' />
                 </div>
@@ -219,9 +212,14 @@ const LandingPage = () => {
                         <SliderProgram />
                     </div>
                 </div>
-                <div className="container absolute z-40 left-0 -bottom-20 w-full flex flex-row  justify-start items-end">
+                <div className="container absolute z-40 left-0 bottom-0 w-full flex flex-row justify-start items-end overflow-hidden px-4">
                     {Array(10).fill().map((_, index) => (
-                        <img src={awan} alt="" className='w-20 sm:w-32 md:w-3/10 -ml-10 md:-ml-20' key={index} />
+                        <img 
+                            src={awan} 
+                            alt="" 
+                            className='flex-shrink-0 w-20 sm:w-28 md:w-36 lg:w-44 -ml-6 sm:-ml-8 md:-ml-10 lg:-ml-12 object-contain' 
+                            key={index} 
+                        />
                     ))}
                 </div>
                 <br />

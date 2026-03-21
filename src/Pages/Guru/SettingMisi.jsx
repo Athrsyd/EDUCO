@@ -29,7 +29,7 @@ export default function Misi() {
         </div>
 
         {/* Logout */}
-        <div 
+        <div
         onClick={handleLogout}
         className="opacity-60 hover:opacity-100 cursor-pointer"
         >
@@ -51,12 +51,12 @@ export default function Misi() {
 
         {/* HEADER */}
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#F4A300] mb-4 sm:mb-6">
-          Daftar Murid
+          Daftar Misi
         </h1>
 
         {/* BUTTON */}
         <Link to="/guru/create-misi">
-          <button className="flex items-center gap-2 bg-[#4CAF50] text-white px-4 sm:px-5 py-2 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
+          <button className="flex items-center gap-2 bg-[#4CAF50] text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 sm:mb-6 text-sm sm:text-base font-semibold shadow-md hover:shadow-lg transition">
             Buat Misi
             {dataIcon({ size: 16, color: "#FFFFFF" }).plus}
           </button>
@@ -68,20 +68,20 @@ export default function Misi() {
           {dataMisiDitugaskan.map((misi, index) => (
             <div
               key={misi.id}
-              className="flex flex-col sm:flex-row sm:items-center justify-between bg-[#1B5E20] px-4 sm:px-6 py-4 sm:py-5 rounded-2xl gap-3 sm:gap-0"
+              className="flex flex-col sm:flex-row sm:items-center justify-between bg-[#1B5E20] px-4 sm:px-6 py-4 sm:py-5 rounded-2xl gap-3 sm:gap-0 shadow-md"
             >
 
               {/* LEFT */}
-              <div className="flex items-center gap-4 sm:gap-6">
+              <div className="flex items-center gap-3 sm:gap-6">
 
                 {/* NUMBER */}
-                <h2 className="text-white text-lg sm:text-2xl md:text-[28px] font-bold">
+                <h2 className="text-white text-lg sm:text-xl md:text-2xl font-bold min-w-[40px] sm:min-w-[50px]">
                   {String(index + 1).padStart(2, "0")}
                 </h2>
 
                 {/* TEXT */}
-                <div>
-                  <p className="text-white text-sm sm:text-base font-medium">
+                <div className="min-w-0 flex-1">
+                  <p className="text-white text-sm sm:text-base font-medium truncate">
                     {misi.namaMisi}
                   </p>
                   <p className="text-[#F4A300] text-xs sm:text-sm">
@@ -92,19 +92,17 @@ export default function Misi() {
               </div>
 
               {/* RIGHT ICON */}
-              <div className="flex items-center gap-4 sm:gap-6 justify-end">
+              <div className="flex items-center gap-3 sm:gap-4 justify-end">
 
-                {dataIcon({ size: 20, color: "#FFFFFF" }).trash ||
-                  <span>
-                    {dataIcon({ size: 20, color: "#FFFFFF" }).delete}
-                  </span>
-                }
+                <button className="text-white hover:text-red-300 transition-colors p-2">
+                  {dataIcon({ size: 20, color: "#FFFFFF" }).trash}
+                </button>
 
-                {dataIcon({ size: 20, color: "#FFFFFF" }).edit ||
-                  <span>
+                <Link to={`/guru/edit-misi/${misi.id}`}>
+                  <button className="text-white hover:text-blue-300 transition-colors p-2">
                     {dataIcon({ size: 20, color: "#FFFFFF" }).pen}
-                  </span>
-                }
+                  </button>
+                </Link>
 
               </div>
 
