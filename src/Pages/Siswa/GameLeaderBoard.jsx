@@ -12,12 +12,12 @@ const GameLeaderBoard = () => {
 
   // Dummy leaderboard data
   const leaderboardData = [
-    { rank: 1, name: 'Ahmad', class: '10A', points: 2500 },
-    { rank: 2, name: 'Budi', class: '10B', points: 2350 },
-    { rank: 3, name: 'Citra', class: '10A', points: 2200 },
-    { rank: 4, name: 'Dewi', class: '10C', points: 2100 },
-    { rank: 5, name: 'Eko', class: '10B', points: 1950 },
-    { rank: 6, name: 'Fajar', class: '10A', points: 1800 },
+    { rank: 1, name: 'Fajar Ramadhan', class: '7A', points: 2500 },
+    { rank: 2, name: 'Aulia Rahma', class: '7B', points: 2350 },
+    { rank: 3, name: 'Nadia Putri', class: '10A', points: 2200 },
+    { rank: 4, name: 'Rizky Hidayat', class: '10C', points: 2100 },
+    { rank: 5, name: 'Maya Salsabila', class: '10B', points: 1950 },
+    { rank: 6, name: 'Ilham Maulana', class: '10A', points: 1800 },
     { rank: 7, name: 'Gita', class: '10C', points: 1750 },
     { rank: 8, name: 'Hana', class: '10B', points: 1600 },
     { rank: 9, name: 'Indra', class: '10A', points: 1550 },

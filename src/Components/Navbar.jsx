@@ -2,9 +2,9 @@ import React from 'react'
 import Logo from '/logo_Educo.svg'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sparkles } from 'lucide-react'
 
-const Navbar = () => {
+const Navbar = ({ onOpenAI }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
     const [linkName, setLinkName] = useState('home')
@@ -76,6 +76,13 @@ const Navbar = () => {
 
                 {/* Hamburger Menu Button - Mobile */}
                 <div className="buttons flex flex-row justify-between items-center gap-3 md:hidden">
+                    <button
+                        onClick={onOpenAI}
+                        className='px-3 py-1.5 bg-gradient-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full text-xs shadow-md flex items-center gap-1'
+                    >
+                        <Sparkles className="w-3 h-3" />
+                        AI
+                    </button>
                     {role ? (
                         <Link to={`/${role}/dashboard`} onClick={closeMenu}>
                             <button className='w-full px-3 text-sm py-1 bg-primary font-semibold text-white rounded-full
@@ -105,10 +112,16 @@ const Navbar = () => {
                             <a href="#about" onClick={() => handleClick('about')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'about' ? 'text-last' : ''}`}>Tentang Kami</li></a>
                             <a href="#program" onClick={() => handleClick('program')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'program' ? 'text-last' : ''}`}>Program</li></a>
                             <a href="#testimoni" onClick={() => handleClick('testimoni')}><li className={`hover:text-primary transition-colors duration-500 ease-in-out ${linkName === 'testimoni' ? 'text-last' : ''}`}>Testimoni</li></a>
-                            {/* <li onClick={test} className='hover:text-primary cursor-pointer transition-colors'>test</li> */}
                         </ul>
                     </div>
                     <div className="buttons flex flex-row justify-between items-center gap-3 lg:gap-5">
+                        <button
+                            onClick={onOpenAI}
+                            className='px-4 py-2 lg:px-5 lg:py-2 bg-gradient-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full text-sm lg:text-base hover:from-[#B8860B] hover:to-[#F2B50B] transition-all duration-300 ease-in-out shadow-md hover:shadow-lg flex items-center gap-2'
+                        >
+                            <Sparkles className="w-4 h-4" />
+                            AI
+                        </button>
                         {role ? (
                             <Link to={`/${role}/dashboard`}>
                                 <button className='px-4 py-2 lg:px-5 lg:py-2 bg-primary font-semibold text-white rounded-full text-sm lg:text-base hover:bg-secondary transition-colors duration-300 ease-in-out'>Dashboard</button>
@@ -142,10 +155,16 @@ const Navbar = () => {
                             <a href="#about" onClick={() => { handleClick('about'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Tentang Kami</li></a>
                             <a href="#program" onClick={() => { handleClick('program'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Program</li></a>
                             <a href="#testimoni" onClick={() => { handleClick('testimoni'); closeMenu(); }}><li className='hover:text-primary transition-colors py-2 border-b border-secondary/20'>Testimoni</li></a>
-
                         </ul>
                     </div>
                     <div className="buttons flex flex-col gap-4 mt-8">
+                        <button
+                            onClick={() => { onOpenAI(); closeMenu(); }}
+                            className='w-full px-5 py-3 bg-gradient-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full shadow-md flex items-center justify-center gap-2'
+                        >
+                            <Sparkles className="w-5 h-5" />
+                            AI Chat
+                        </button>
                         {role ? (
                             <Link to={`/${role}/dashboard`} onClick={closeMenu}>
                                 <button className='w-full px-5 py-3 bg-primary font-semibold text-white rounded-full

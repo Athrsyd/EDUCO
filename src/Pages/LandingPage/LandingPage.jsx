@@ -13,9 +13,11 @@ import Testimoni from '../../Components/Testimoni'
 import Counter from '../../Components/Counter'
 import { Link } from 'react-router-dom'
 import ParalaxBurung from '../../Components/ParalaxBurung'
+import EducoAI from './EducoAI'
 
 const LandingPage = () => {
     const [role, setRole] = useState(null)
+    const [showAI, setShowAI] = useState(false)
     const ctaPath = role ? `/${role}/dashboard` : '/register'
 
     useEffect(() => {
@@ -67,7 +69,7 @@ const LandingPage = () => {
     ]
     return (
         <div className='overflow-x-hidden'>
-            <Navbar />
+            <Navbar onOpenAI={() => setShowAI(true)} />
             <section id="home" className=" h-screen relative overflow-hidden rounded-b-3xl md:rounded-b-4xl">
 
                 <img src={Background} alt="Background" className='absolute h-screen inset-0 w-full object-cover' />
@@ -315,6 +317,9 @@ const LandingPage = () => {
             {/* Testimoni End */}
             {/* About End */}
             <Footer />
+            
+            {/* EducoAI Modal */}
+            {showAI && <EducoAI onClose={() => setShowAI(false)} />}
         </div>
     )
 }

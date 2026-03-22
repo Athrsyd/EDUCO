@@ -8,15 +8,16 @@ import GameTutorial from '../Pages/Siswa/GameTutorial'
 import Misi from '../Pages/Siswa/Misi'
 import LandingPage from '../Pages/LandingPage/LandingPage'
 import Auth from '../Pages/AuthPage/Login/Auth'
-// import Register from '../Pages/AuthPage/Register/Register'
 import CapaianMurid from '../Pages/Guru/CapaianMurid'
 import CreateMisi from '../Pages/Guru/CreateMisi'
 import DaftarMurid from '../Pages/Guru/DaftarMurid'
 import EditMisi from '../Pages/Guru/EditMisi'
-// import Kelas from '../Pages/Guru/Kelas'
 import DashbordGuru from '../Pages/Guru/DashbordGuru'
 import DashboardSiswa from '../Pages/Siswa/DashboardSiswa'
 import TestingComponent from './TestingComponent'
+import Level1 from '../Pages/Siswa/level1'
+import Level2 from '../Pages/Siswa/level2'
+import Level3 from '../Pages/Siswa/level3'
  
 
 const getUserRole = () => localStorage.getItem('userRole')
@@ -70,6 +71,9 @@ const Router = () => {
         <Route path="/siswa/game-menu" element={<ProtectedRoute allowedRole="siswa"><GameMenu /></ProtectedRoute>} />
         <Route path="/siswa/game-tutorial" element={<ProtectedRoute allowedRole="siswa"><GameTutorial /></ProtectedRoute>} />
         <Route path="/siswa/misi" element={<ProtectedRoute allowedRole="siswa"><Misi /></ProtectedRoute>} />
+        <Route path="/siswa/level1" element={<ProtectedRoute allowedRole="siswa"><Level1 /></ProtectedRoute>} />
+        <Route path="/siswa/level2" element={<ProtectedRoute allowedRole="siswa"><Level2 /></ProtectedRoute>} />
+        <Route path="/siswa/level3" element={<ProtectedRoute allowedRole="siswa"><Level3 /></ProtectedRoute>} />
 
         {/* Guru Pages */}
         <Route path="/guru/dashboard" element={<ProtectedRoute allowedRole="guru"><DashbordGuru /></ProtectedRoute>} />
