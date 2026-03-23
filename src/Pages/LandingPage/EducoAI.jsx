@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { X, Send, Sparkles, Trash2, ArrowLeft } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const EducoAI = ({ onClose }) => {
   const navigate = useNavigate()
@@ -643,9 +645,16 @@ PENTING:
   }
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-gradient-to-br from-[#F7F0F0] via-white to-[#E8F5E9] flex flex-col animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[10000] bg-gradient-to-br from-[#F7F0F0] via-white to-[#E8F5E9] flex flex-col">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#48A111]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#F2B50B]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#25671E]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+      
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#48A111] via-[#25671E] to-[#48A111] bg-[length:200%_100%] animate-gradient shadow-lg">
+      <div className="bg-gradient-to-r from-[#48A111] via-[#25671E] to-[#48A111] bg-[length:200%_100%] animate-gradient shadow-lg animate-in slide-in-from-top duration-500">
         <div className="max-w-5xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -655,13 +664,13 @@ PENTING:
               >
                 <ArrowLeft className="w-6 h-6 text-white" />
               </button>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-lg">
+              <div className="flex items-center gap-3 animate-in fade-in slide-in-from-left duration-700" style={{ animationDelay: '200ms' }}>
+                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-lg animate-bounce" style={{ animationDuration: '2s' }}>
                   <Sparkles className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-white font-bold text-xl tracking-tight">EducoAI</h2>
-                  <p className="text-white/85 text-sm">Asisten Virtual EDUCO</p>
+                  <h2 className="text-white font-bold text-xl tracking-tight animate-in fade-in duration-700" style={{ animationDelay: '400ms' }}>EducoAI</h2>
+                  <p className="text-white/85 text-sm animate-in fade-in duration-700" style={{ animationDelay: '500ms' }}>Asisten Virtual EDUCO</p>
                 </div>
               </div>
             </div>
@@ -679,7 +688,7 @@ PENTING:
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto animate-in fade-in slide-in-from-bottom duration-700" style={{ animationDelay: '300ms' }}>
         <div className="max-w-4xl mx-auto px-4 py-6">
           <div className="space-y-6">
             {messages.map((message, index) => (
@@ -702,7 +711,34 @@ PENTING:
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm md:text-base whitespace-pre-wrap leading-relaxed break-words">{message.content}</p>
+                      <div className={`text-sm md:text-base leading-relaxed break-words ${
+                        message.role === 'user' ? 'text-white' : 'text-gray-800'
+                      }`}>
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            strong: ({node, ...props}) => <span className="font-bold" {...props} />,
+                            em: ({node, ...props}) => <span className="italic" {...props} />,
+                            code: ({node, inline, ...props}) => (
+                              inline 
+                                ? <code className="bg-gray-200 px-1.5 py-0.5 rounded text-sm font-mono text-[#48A111]" {...props} />
+                                : <code className="block bg-gray-100 p-3 rounded-lg text-sm font-mono overflow-x-auto" {...props} />
+                            ),
+                            pre: ({node, ...props}) => <pre className="bg-gray-100 p-3 rounded-lg overflow-x-auto my-2" {...props} />,
+                            ul: ({node, ...props}) => <ul className="list-disc list-inside my-2 space-y-1" {...props} />,
+                            ol: ({node, ...props}) => <ol className="list-decimal list-inside my-2 space-y-1" {...props} />,
+                            li: ({node, ...props}) => <li className="ml-2" {...props} />,
+                            p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                            h1: ({node, ...props}) => <h1 className="text-xl font-bold my-2" {...props} />,
+                            h2: ({node, ...props}) => <h2 className="text-lg font-bold my-2" {...props} />,
+                            h3: ({node, ...props}) => <h3 className="text-base font-bold my-2" {...props} />,
+                            blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-[#48A111] pl-4 italic my-2" {...props} />,
+                            hr: ({node, ...props}) => <hr className="my-3 border-gray-300" {...props} />,
+                          }}
+                        >
+                          {message.content}
+                        </ReactMarkdown>
+                      </div>
                       <p className={`text-xs mt-2 ${message.role === 'user' ? 'text-white/70' : 'text-gray-400'}`}>
                         {formatTime(message.timestamp)}
                       </p>
@@ -734,7 +770,7 @@ PENTING:
       </div>
 
       {/* Input */}
-      <div className="bg-white border-t border-gray-200 shadow-lg">
+      <div className="bg-white border-t border-gray-200 shadow-lg animate-in fade-in slide-in-from-bottom duration-700" style={{ animationDelay: '500ms' }}>
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-end gap-3">
             <div className="flex-1 relative">
@@ -743,7 +779,7 @@ PENTING:
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ketik pesan Anda... (contoh: 'Cuaca di Jakarta', 'Ada kebakaran hutan?', 'Asteroid minggu ini?')"
+                placeholder="tanya EducoAI"
                 className="w-full resize-none rounded-2xl border border-gray-300 px-5 py-4 pr-14 focus:outline-none focus:ring-2 focus:ring-[#48A111] focus:border-transparent text-sm md:text-base transition-all duration-200 shadow-sm hover:shadow-md"
                 rows="1"
                 style={{ minHeight: '56px', maxHeight: '140px' }}

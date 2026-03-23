@@ -318,8 +318,12 @@ const LandingPage = () => {
             {/* About End */}
             <Footer />
             
-            {/* EducoAI Modal */}
-            {showAI && <EducoAI onClose={() => setShowAI(false)} />}
+            {/* EducoAI Modal dengan Animation */}
+            {showAI && (
+              <div className="animate-in fade-in zoom-in-95 duration-300">
+                <EducoAI onClose={() => setShowAI(false)} />
+              </div>
+            )}
         </div>
     )
 }

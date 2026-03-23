@@ -25,6 +25,8 @@ import { TbTargetArrow } from "react-icons/tb";
 import { EllipsisVertical } from 'lucide-react';
 import { Upload } from 'lucide-react';
 import { Link } from 'lucide-react';
+import { Pen } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 
 
 
@@ -67,7 +69,9 @@ const dataIcon = ( children ) => {
         "more": <EllipsisVertical size={children.size} color={children.color} />,
         "upload": <Upload size={children.size} color={children.color} />,
         "link": <Link size={children.size} color={children.color} />,
-    
+        "pen": <Pen size={children.size} color={children.color} />,
+        "trash": <Trash2 size={children.size} color={children.color} />,
+
     }
 };
 
