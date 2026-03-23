@@ -11,6 +11,7 @@ import {
 } from 'chart.js'
 import Sidebar from '../../Components/Sidebar'
 import PageTransition from '../../Components/PageTransition'
+import DetailMisi from '../../Components/Siswa/DetailMisi'
 import dataIcon from '../../assets/Data/icon'
 import dataMisi from '../../assets/Data/Mode Siswa/dataMisi'
 import dataStatistik from '../../assets/Data/Mode Siswa/dataStatistik'
@@ -20,6 +21,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend)
 const Misi = () => {
   const navigate = useNavigate()
   const [filter, setFilter] = useState('belum')
+  const [misiAktif, setMisiAktif] = useState(null)
 
   const handleLogout = () => {
     localStorage.removeItem('userRole')
@@ -209,6 +211,8 @@ const Misi = () => {
 
                   <button
                     type="button"
+                    onClick={() => {setMisiAktif(item); window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     className="mt-2 md:mt-5 rounded-full bg-last px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-xl font-bold text-secondary hover:scale-[1.03] transition-transform touch-target"
                   >
                     Baca Petunjuk
@@ -264,6 +268,12 @@ const Misi = () => {
         </div>
       </nav>
     </div>
+
+    <DetailMisi
+      isOpen={Boolean(misiAktif)}
+      misi={misiAktif}
+      onClose={() => setMisiAktif(null)}
+    />
     </PageTransition>
   )
 }

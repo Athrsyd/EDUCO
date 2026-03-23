@@ -29,6 +29,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
 
 Bukti_Pendaftaran.jpeg
 catatanData.txt

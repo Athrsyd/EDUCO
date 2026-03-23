@@ -78,7 +78,7 @@ const Navbar = ({ onOpenAI }) => {
                 <div className="buttons flex flex-row justify-between items-center gap-3 md:hidden">
                     <button
                         onClick={onOpenAI}
-                        className='px-3 py-1.5 bg-gradient-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full text-xs shadow-md flex items-center gap-1'
+                        className='px-3 py-1.5 bg-linear-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full text-xs shadow-md flex items-center gap-1'
                     >
                         <Sparkles className="w-3 h-3" />
                         AI
@@ -117,7 +117,7 @@ const Navbar = ({ onOpenAI }) => {
                     <div className="buttons flex flex-row justify-between items-center gap-3 lg:gap-5">
                         <button
                             onClick={onOpenAI}
-                            className='px-4 py-2 lg:px-5 lg:py-2 bg-gradient-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full text-sm lg:text-base hover:from-[#B8860B] hover:to-[#F2B50B] transition-all duration-300 ease-in-out shadow-md hover:shadow-lg flex items-center gap-2'
+                            className='px-4 py-2 lg:px-5 lg:py-2 bg-linear-to-r from-[#F2B50B] to-[#B8860B] font-semibold text-white rounded-full  text-sm lg:text-base hover:from-[#B8860B] hover:to-[#F2B50B] transition-all duration-300 ease-in-out shadow-md hover:shadow-lg flex items-center gap-2'
                         >
                             <Sparkles className="w-4 h-4" />
                             AI

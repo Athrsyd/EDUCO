@@ -8,7 +8,7 @@ const ParalaxBurung = ({ className = '' }) => {
     <div className={`relative w-full overflow-visible pointer-events-none ${className}`}>
       <Parallax
         strength={260}
-        className="h-full min-h-[360px] overflow-visible"
+        className="h-full min-h-90 overflow-visible"
         style={{ overflow: 'visible' }}
         renderLayer={(percentage = 0) => {
           const p = clamp(percentage, 0, 1)
@@ -19,7 +19,7 @@ const ParalaxBurung = ({ className = '' }) => {
           return (
             <img
               src="/Burung_paralax.svg"
-              className="absolute w-60 h-60 select-none z-[80]"
+              className="absolute w-60 h-60 select-none z-80"
               style={{
                 left: `${left}%`,
                 top: `${top}px`,
@@ -32,7 +32,7 @@ const ParalaxBurung = ({ className = '' }) => {
           )
         }}
       >
-        <div className="h-full min-h-[360px]" />
+        <div className="h-full min-h-90" />
       </Parallax>
     </div>
   )

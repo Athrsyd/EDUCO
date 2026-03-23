@@ -18,6 +18,7 @@ import TestingComponent from './TestingComponent'
 import Level1 from '../Pages/Siswa/level1'
 import Level2 from '../Pages/Siswa/level2'
 import Level3 from '../Pages/Siswa/level3'
+import NotFound from '../Pages/NotFound'
  
 
 const getUserRole = () => localStorage.getItem('userRole')
@@ -84,6 +85,9 @@ const Router = () => {
         <Route path="/guru/daftar-murid" element={<ProtectedRoute allowedRole="guru"><DaftarMurid /></ProtectedRoute>} />
         <Route path="/guru/edit-misi/:id" element={<ProtectedRoute allowedRole="guru"><EditMisi /></ProtectedRoute>} />
         {/* <Route path="/guru/"/> */}
+
+        {/* Not Found */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
   )
 }
