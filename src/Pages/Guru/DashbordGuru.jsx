@@ -33,6 +33,13 @@ export default function Dashboard() {
       {/* SIDEBAR */}
       <aside className="w-14 sm:w-16 md:w-20 h-screen fixed bg-last shadow-lg flex flex-col items-center pt-6 gap-6">
 
+         <div
+          onClick={() => navigate("/")}
+          className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
+          {dataIcon({ size: 24, color: "#4CAF50" }).menu}
+         </div>
+
         <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
           {dataIcon({ size: 18, color: "white" }).graduationCap}
         </div>
@@ -68,9 +75,7 @@ export default function Dashboard() {
               Kelas anda
             </h2>
 
-            <button className="text-accent text-xl sm:text-2xl font-bold">
-              +
-            </button>
+          
           </div>
 
           {/* RESPONSIVE GRID */}

@@ -62,10 +62,9 @@ export default function BuatMisi() {
         </div>
 
         {/* Active - Graduation Cap */}
-        <div className="bg-[#CFE8D5] p-3 rounded-xl">
-          {dataIcon({ size: 24, color: "#2E7D32" }).graduationCap}
+        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+          {dataIcon({ size: 18, color: "white" }).graduationCap}
         </div>
-
         {/* Logout */}
         <div
         onClick={handleLogout}

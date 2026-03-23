@@ -2,6 +2,7 @@ import React from "react";
 import dataIcon from "../../assets/Data/icon";
 import daftarSiswa from "../../assets/Data/Mode Guru/dataDaftarSiswa";
 import { useNavigate } from "react-router-dom";
+import Logo from "/logo_Educo.svg";
 
 export default function DaftarMurid() {
 
@@ -22,13 +23,16 @@ export default function DaftarMurid() {
       <div className="w-[90px] flex flex-col items-center pt-6 gap-8">
 
         {/* Menu */}
-        <div className="cursor-pointer">
-          {dataIcon({ size: 28, color: "#25671E" }).menu}
+        <div 
+        onClick={() => navigate("/guru/kelas")}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
+          {dataIcon({ size: 24, color: "#25671E" }).menu}
         </div>
 
         {/* Graduation */}
-        <div className="bg-[#9fc79f] p-3 rounded-full">
-          {icon.graduationCap}
+        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+          {dataIcon({ size: 18, color: "white" }).graduationCap}
         </div>
 
         {/* Logout */}
@@ -44,9 +48,9 @@ export default function DaftarMurid() {
       <div className="flex-1 p-4 sm:p-6 md:p-10">
 
         {/* Logo */}
-        <h1 className="text-2xl sm:text-3xl font-bold text-green-700 mb-4 sm:mb-6">
-          EDUCO
-        </h1>
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+                  <img src={Logo} alt="Logo" className="w-24 sm:w-28 md:w-32 h-auto" />
+        </div>
 
         {/* Card */}
         <div className="bg-[#e7e3dd] rounded-lg p-4 sm:p-6 md:p-10">

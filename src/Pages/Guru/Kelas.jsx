@@ -2,7 +2,7 @@ import React from "react";
 import dataIcon from "/src/assets/Data/icon.jsx";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import Logo from "/logo_Educo.svg";
 export default function Dashboard() {
   const sebutan = "Pak";
   const username = "Kopling";
@@ -12,6 +12,7 @@ export default function Dashboard() {
   const handleLogout = () => {
     navigate ("/");
     localStorage.removeItem ("userRole");
+    
 };
 
   return (
@@ -20,12 +21,15 @@ export default function Dashboard() {
       {/* SIDEBAR */}
       <div className="w-14 sm:w-16 md:w-20 bg-[#E7E3DE] flex flex-col items-center py-4 gap-6">
 
-        <div>
-          {dataIcon({ size: 20, color: "#4CAF50" }).menu}
+        <div
+        onClick={() => navigate("/guru/dashboard")}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
+          {dataIcon({ size: 24, color: "#4CAF50" }).menu}
         </div>
 
-        <div className="bg-[#CFE8D5] p-2 sm:p-3 rounded-xl">
-          {dataIcon({ size: 20, color: "#2E7D32" }).graduationCap}
+        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+          {dataIcon({ size: 18, color: "white" }).graduationCap}
         </div>
 
         <div

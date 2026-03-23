@@ -2,7 +2,7 @@ import React from "react";
 import dataPelajar from "../../assets/Data/dataPelajar";
 import dataIcon from "/src/assets/Data/icon.jsx";
 import { useNavigate } from "react-router-dom";
-
+import Logo from "/logo_Educo.svg";
 
 export default function CapaianMurid() {
 
@@ -21,13 +21,16 @@ export default function CapaianMurid() {
       <div className="w-[80px] bg-[#E7E3DE] flex flex-col items-center py-4 gap-6">
 
         {/* Menu Icon */}
-        <div>
-          {dataIcon({ size: 26, color: "#4CAF50" }).menu}
+        <div
+        onClick={() => navigate("/guru/kelas")}
+        className="opacity-60 hover:opacity-100 cursor-pointer"
+        >
+          {dataIcon({ size: 24, color: "#4CAF50" }).menu}
         </div>
 
         {/* Active Icon */}
-        <div className="bg-[#CFE8D5] p-3 rounded-xl">
-          {dataIcon({ size: 24, color: "#2E7D32" }).graduationCap}
+       <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+          {dataIcon({ size: 18, color: "white" }).graduationCap}
         </div>
 
         {/* Logout Icon */}
@@ -43,6 +46,11 @@ export default function CapaianMurid() {
       <div className="flex-1 px-4 sm:px-6 md:px-10 py-6 md:py-8">
 
         {/* HEADER */}
+        <div className="flex items-center justify-between mb-6 sm:mb-8">
+           <img src={Logo} alt="Logo" className="w-24 sm:w-28 md:w-32 h-auto" />
+        </div>
+
+
         <div className="flex items-center gap-3 mb-6 sm:mb-10">
           <h1 className="text-2xl sm:text-3xl md:text-[32px] font-bold text-[#F4A300]">
             Capaian Murid
