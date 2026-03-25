@@ -18,6 +18,7 @@ import TestingComponent from './TestingComponent'
 import Level1 from '../Pages/Siswa/level1'
 import Level2 from '../Pages/Siswa/level2'
 import Level3 from '../Pages/Siswa/level3'
+import BuatKelas from '../Pages/Guru/BuatKelas'
 import NotFound from '../Pages/NotFound'
  
 
@@ -84,6 +85,7 @@ const Router = () => {
         <Route path="/guru/create-misi" element={<ProtectedRoute allowedRole="guru"><CreateMisi /></ProtectedRoute>} />
         <Route path="/guru/daftar-murid" element={<ProtectedRoute allowedRole="guru"><DaftarMurid /></ProtectedRoute>} />
         <Route path="/guru/edit-misi/:id" element={<ProtectedRoute allowedRole="guru"><EditMisi /></ProtectedRoute>} />
+        <Route path="/guru/buat-kelas" element={<ProtectedRoute allowedRole="guru"><BuatKelas /></ProtectedRoute>} />
         {/* <Route path="/guru/"/> */}
 
         {/* Not Found */}

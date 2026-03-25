@@ -35,9 +35,12 @@ export default function Dashboard() {
 
          <div
           onClick={() => navigate("/")}
-          className="opacity-60 hover:opacity-100 cursor-pointer"
+          className="opacity-60 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-110"
+          title="Kembali ke Home"
         >
-          {dataIcon({ size: 24, color: "#4CAF50" }).menu}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4CAF50" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
          </div>
 
         <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center text-white">
@@ -75,7 +78,12 @@ export default function Dashboard() {
               Kelas anda
             </h2>
 
-          
+            <Link to="/guru/buat-kelas">
+              <button className="bg-accent hover:bg-accent/80 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110">
+                {dataIcon({ size: 24, color: "#F7F0F0" }).plus}
+              </button>
+            </Link>
+
           </div>
 
           {/* RESPONSIVE GRID */}

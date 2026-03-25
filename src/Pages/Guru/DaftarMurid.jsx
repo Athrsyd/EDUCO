@@ -1,6 +1,6 @@
 import React from "react";
 import dataIcon from "../../assets/Data/icon";
-import daftarSiswa from "../../assets/Data/Mode Guru/dataDaftarSiswa";
+import dataPelajar from "../../assets/Data/dataPelajar";
 import { useNavigate } from "react-router-dom";
 import Logo from "/logo_Educo.svg";
 
@@ -22,12 +22,15 @@ export default function DaftarMurid() {
       {/* Sidebar */}
       <div className="w-[90px] flex flex-col items-center pt-6 gap-8">
 
-        {/* Menu */}
-        <div 
-        onClick={() => navigate("/guru/kelas")}
-        className="opacity-60 hover:opacity-100 cursor-pointer"
+        {/* Home */}
+        <div
+        onClick={() => navigate("/")}
+        className="opacity-60 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-110"
+        title="Kembali ke Home"
         >
-          {dataIcon({ size: 24, color: "#25671E" }).menu}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#25671E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
         </div>
 
         {/* Graduation */}
@@ -60,15 +63,33 @@ export default function DaftarMurid() {
           </h2>
 
           <div className="space-y-4 sm:space-y-6">
-            {daftarSiswa.map((siswa) => (
+            {dataPelajar.map((siswa) => (
               <div
                 key={siswa.id}
-                className="flex justify-between items-center border-b border-green-600 pb-2 sm:pb-3"
+                className="flex items-center gap-3 sm:gap-4 border-b border-green-600 pb-3 sm:pb-4"
               >
 
-                <p className="text-green-700 font-semibold text-sm sm:text-base md:text-lg truncate flex-1">
-                  {siswa.nama}
-                </p>
+                {/* Profile Picture */}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-green-600 shadow-md">
+                  <img
+                    src={siswa.foto}
+                    alt={siswa.nama}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = "https://ui-avatars.com/api/?name=" + encodeURIComponent(siswa.nama) + "&background=4CAF50&color=fff";
+                    }}
+                  />
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-green-700 font-semibold text-sm sm:text-base md:text-lg truncate">
+                    {siswa.nama}
+                  </p>
+                  <p className="text-green-600 text-xs sm:text-sm">
+                    {siswa.mission_complated}/{siswa.mission_gived} misi selesai
+                  </p>
+                </div>
 
                 {/* Icon 3 titik */}
                 <div className="cursor-pointer flex-shrink-0 ml-2">
